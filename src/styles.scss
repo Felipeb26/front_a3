@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --midRed: #ff0000;
+
+  --myPurple: #52587a;
+  --myPurpleShadow: #939fe1;
+
+  --pdfColor: #215f64;
+  --myLogo: #38d5d8;
+  
+  --myBlack: #e7e7e7;
+  --myWhite: rgb(53, 53, 53);
+  --myGray: rgba(103, 103, 103, 0.442);
+  
+  //icon style
+  --iconWhite: rgb(245, 241, 241);
+  --iconBlue: rgb(22, 22, 255);
+  --iconRed: rgb(255, 0, 0);
+}
+
+:root .dark-theme {
+  --midRed: #cb0404;
+  --myPurple: #858ec0;
+  --myPurpleShadow: #5d6cc2;
+  
+  --myLogo: #2c8b8d;
+  --pdfColor: #369098;
+
+  --myBlack: #232323;
+  --myWhite: #ece9e9;
+  --myGray: #67676771;
+  //icons style
+
+  --iconWhite: rgb(245, 241, 241);
+  --iconBlue: rgb(25, 25, 216);
+  --iconRed: rgb(170, 3, 3);
+}
+
+html,
+body {
+  line-height: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+::ng-deep .mat-input-element::placeholder {
+  color: var(--myLogo);
+}
+
+
+::-webkit-scrollbar-track{
+  background-color: var(--myGray);
+}
+::-webkit-scrollbar{
+  width: 0.7rem;
+  border: 1px solid var(--myBlack);
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius: 0;
+  background: var(--myPurpleShadow);
+}

@@ -1,0 +1,62 @@
+<footer>
+    <div class="footers">
+        <div class="sobre footerCol">
+            <h4>sobre</h4>
+            <ul>
+                <li><a href="#">quem somos</a></li>
+                <li><a href="#">nossos serviços</a></li>
+                <li><a href="#">politica de privaciade</a></li>
+                <li><a href="#">programa de afiliados</a></li>
+            </ul>
+        </div>
+        <div class="contato footerCol">
+            <h4>contato</h4>
+            <ul>
+                <li><a href="#">endereco</a></li>
+                <li><a href="#">telefone</a></li>
+                <li><a href="#">email</a></li>
+                <li><a href="#">linkedin</a></li>
+            </ul>
+        </div>
+        <div class="redes footerCol">
+            <h4>redes socias</h4>
+            <a class="linkedin" (click)="mostrarRedes(faLinkedin)">
+                <span class="linkedin">
+                    <fa-icon [icon]="faLinkedin" size="2x"></fa-icon>
+                </span>
+                linkedin
+            </a>
+            <a href="mailto:felipeb2silva@gmail.com;lipethunderb@gmail.com" target="_blank" class="mailIcon">
+                <span>
+                    <fa-icon [icon]="faMail" size="2x"></fa-icon>
+                </span>
+                email
+            </a>
+            <a class="github" (click)="mostrarRedes(faGithub)">
+                <span>
+                    <fa-icon [icon]="faGithub" size="2x"></fa-icon>
+                </span>
+                github
+            </a>
+        </div>
+        
+        <div class="mail footerCol">
+            <form #mail="ngForm" (submit)="sendMail(mail.value)">
+                <mat-form-field appearance="fill">
+                    <mat-label>assunto</mat-label>
+                    <input type="text" matInput minlength="1" maxlength="50" name="assunto" ngModel>
+                    <mat-hint align="end">max 10 caracters</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>mensagem</mat-label>
+                    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                        cdkAutosizeMaxRows="2" minlength="15" maxlength="50" name="mensagem" ngModel></textarea>
+                    <mat-hint align="end">max 50 caracters</mat-hint>
+                </mat-form-field>
+                <button type="submit" mat-raised-button>
+                    enviar
+                </button>
+            </form>
+        </div>
+    </div>
+</footer>

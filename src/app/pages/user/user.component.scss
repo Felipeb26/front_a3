@@ -1,0 +1,105 @@
+.card {
+    box-shadow: 0 0 1.5rem var(--myPurpleShadow);
+    justify-content: space-between;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    padding: 1rem;
+    margin: 5% 3%;
+    display: flex;
+
+    & form {
+        flex-direction: column;
+        display: flex;
+        flex: 3;
+
+        & .btns {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+
+            & button {
+                transition: all 0.3s ease-in-out;
+                box-shadow: 0 0 0.8rem var(--myPurpleShadow);
+                background: var(--myPurple);
+                text-transform: uppercase;
+                letter-spacing: 0.2rem;
+                color: var(--myBlack);
+                font-weight: bold;
+                margin: 1rem 1.2rem;
+            }
+
+            & button:hover {
+                box-shadow: 0 0.5rem 0.8rem var(--myLogo);
+            }
+        }
+    }
+
+    & .delete {
+        height: 25%;
+        display: flex;
+        margin: 1rem 0 0 3rem;
+
+        & button {
+            box-shadow: 0 0 0.3rem var(--myPurpleShadow);
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-weight: bold;
+            color: var(--myBlack);
+            background: var(--myPurple);
+        }
+    }
+}
+
+mat-form-field {
+    box-shadow: inset 0 0 5rem var(--myPurple);
+    margin: 0 0 2rem 0;
+
+    & mat-label {
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-weight: 500;
+        font-style: italic;
+        color: var(--myBlack);
+    }
+
+    & input {
+        margin: 0.5rem 0 0.5rem 0;
+        color: var(--myBlack);
+        font-size: medium;
+    }
+
+    & input::placeholder {
+        letter-spacing: 0.1rem;
+        font-weight: 500;
+        color: var(--myLogo);
+        text-decoration: underline var(--myLogo);
+    }
+}
+
+mat-checkbox {
+    text-decoration: underline var(--myBlack);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    color: var(--myBlack);
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    outline: none;
+}
+
+mat-checkbox::after {
+    content: "";
+    background: var(--myLogo);
+    position: absolute;
+    height: 0.2rem;
+    width: 125%;
+    left: -1.2rem;
+    right: 0;
+    bottom: 0;
+    transform: scale(0, 0.8);
+    transition: 0.5s ease-in-out;
+}
+
+mat-checkbox:hover::after {
+    transform: scale(0.8, 0.8);
+}

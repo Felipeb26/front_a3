@@ -1,0 +1,127 @@
+.card {
+    margin: 5% 3%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: var(--myWhite);
+    box-shadow: 0 0 1rem var(--myPurpleShadow);
+}
+
+.card:hover {
+    box-shadow: 0 0 1rem var(--myLogo);
+}
+
+.cadastro-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.dadosBase {
+    display: flex;
+
+    .dadosIdent {
+        flex: 1;
+        flex-direction: column;
+
+        & mat-form-field {
+            width: 80%;
+        }
+    }
+
+    .dadosContato {
+        flex: 1;
+
+        & mat-accordion {
+            letter-spacing: 00.2rem;
+            background: var(--myWhite);
+            text-transform: uppercase;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-decoration-color: var(--myPurpleShadow);
+        }
+
+        & mat-expansion-panel-header {
+            box-shadow: 0 0 0.8rem var(--myPurpleShadow);
+        }
+
+        & mat-panel-description {
+            color: var(--midRed);
+            font-weight: bold;
+        }
+
+        & .tel {
+            margin: 1rem 0 0 0;
+        }
+
+        & mat-form-field {
+            width: 90%;
+        }
+
+        & .password {
+            cursor: pointer;
+        }
+
+        & .password:hover {
+            color: var(--myPurpleShadow);
+        }
+    }
+}
+
+.medico {
+    display: flex;
+    flex-direction: column;
+
+    & mat-form-field {
+        width: 40%;
+    }
+}
+
+h2,
+mat-form-field,
+mat-label {
+    color: var(--myBlack);
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+mat-expansion-panel {
+    box-shadow: 0 0 5rem var(--myPurpleShadow);
+    background: var(--myWhite);
+
+    & mat-panel-title {
+        color: var(--myBlack);
+        font-weight: bold;
+    }
+}
+
+input {
+    letter-spacing: 0.1rem;
+    font-size: larger;
+}
+
+.cadastar {
+    box-shadow: 0 0 0.5rem var(--myPurpleShadow);
+    background: var(--myPurple);
+    color: var(--myBlack);
+    width: auto;
+    border: 2px solid var(--myWhite);
+    margin: 1rem 40%;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: medium;
+}
+
+.cadastar:hover {
+    box-shadow: 0 0 0.8rem var(--myLogo);
+}
+
+@media screen and (max-width: 1365px) {
+    .card {
+        margin: 5% 10%;
+        width: 80%;
+        height: 80%;
+    }
+}

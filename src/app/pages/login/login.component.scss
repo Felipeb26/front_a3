@@ -1,0 +1,143 @@
+.conteudo-login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5%;
+
+	& .conteudo-form {
+		box-shadow: 0 0 1rem var(--myPurpleShadow);
+		background-color: var(--myWhite);
+		border-radius: 10px;
+		text-align: center;
+		width: 50rem;
+		height: 32rem;
+		transition: all 0.5s ease-in-out
+	}
+
+	& .conteudo-form:hover {
+		box-shadow: 0 0 1rem var(--myLogo);
+	}
+}
+
+// logo card
+.logo {
+	border-image: 10px var(--myBlack);
+	box-shadow: 0 0 1rem var(--myPurpleShadow);
+	border-radius: 5px;
+	width: auto;
+	height: 10rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1.5rem 1.5rem;
+	flex-wrap: wrap;
+
+	& img {
+		width: 50%;
+		height: 100%;
+		filter: brightness(1.25);
+	}
+
+	& h3 {
+		text-transform: uppercase;
+		color: var(--myBlack);
+		font-weight: bold;
+		font-size: 2rem;
+		font-style: italic;
+		text-decoration: underline;
+		filter: brightness(1.25);
+		text-shadow: 0.3rem 0.7rem 0.6rem var(--myBlack);
+		-webkit-text-stroke: 1px var(--myLogo);
+	}
+}
+
+.logo:hover {
+	box-shadow: 0 0 1rem var(--myLogo)
+}
+
+// inputs card
+.caixa {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	& mat-card {
+		background: var(--myWhite);
+		box-shadow: 0 0 1rem var(--myBlack);
+	}
+}
+
+mat-form-field {
+	border: 5rem;
+	background: var(--myWhite);
+	width: 70%;
+	border: 0;
+	transition: all 0.5s ease-in-out;
+
+	& mat-label {
+		color: var(--myBlack);
+	}
+
+	& input {
+		color: var(--myBlack);
+		font-size: medium;
+	}
+
+	& mat-hint {
+		font-size: small;
+		color: var(--myBlack);
+	}
+
+	& span {
+		color: var(--myBlack);
+		cursor: pointer;
+	}
+
+	& span:hover {
+		color: var(--myPurpleShadow);
+	}
+}
+
+.mensagem-erro {
+	font-size: 0.9rem;
+	color: red;
+}
+
+//esqueceu senha
+.esqueceu {
+	margin: 0.5rem 0 0 0;
+	font-size: 0.9rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	& p {
+		color: var(--myBlack);
+		text-decoration: underline;
+		font-weight: bold;
+		letter-spacing: 0.1rem;
+	}
+
+	& a {
+		letter-spacing: 0.1rem;
+		color: var(--myPurpleShadow);
+	}
+
+	& a:hover {
+		color: var(--myLogo);
+	}
+}
+
+//btn de submit
+.btn-submit {
+	margin: 1rem 0 0.5rem 0;
+	box-shadow: 0 0 1rem var(--myPurpleShadow);
+	background: var(--myPurple);
+	color: var(--myBlack);
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.btn-submit:hover {
+	box-shadow: 0 0 0.5rem var(--myLogo);
+}

@@ -1,0 +1,53 @@
+<div class="conteudo-login">
+	<form class="conteudo-form" [formGroup]="loginForm" (submit)="submitLogin()">
+		<div class="logo">
+			<img src="{{logo}}" alt="logo">
+			<h3>Origami Saùde</h3>
+		</div>
+
+		<div class="caixa">
+			<!-- input email e erro -->
+			<mat-form-field floatLabel="auto" appearance="outline">
+				<mat-label>EMAIL</mat-label>
+				<input matInput required type="email" formControlName="email">
+				<mat-hint align="end">Informar email</mat-hint>
+				<div class="mensagem-erro"
+					*ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched">
+					*Campo Obrigatório!
+				</div>
+				<div class="mensagem-erro"
+					*ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched">
+					Formato de email não é válido
+				</div>
+			</mat-form-field>
+
+
+			<!-- input senha e erro  -->
+			<mat-form-field floatLabel="auto" appearance="outline">
+				<mat-label>SENHA</mat-label>
+				<input matInput required [type]="showPassword ? 'text' : 'password'" value="password"
+					formControlName="senha">
+				<mat-hint align="end">Informar senha</mat-hint>
+				<span class="material-icons" matSuffix (click)="togglePasswordVisibility()">
+					{{showPassword?'visibility_off':'visibility'}}
+				</span>
+				<div class="mensagem-erro"
+					*ngIf="loginForm.get('senha')?.errors?.['required'] && loginForm.get('senha')?.touched">
+					*Campo Obrigatório!
+				</div>
+			</mat-form-field>
+		</div>
+
+		<div class="esqueceu">
+			<p>
+				Ainda não tem conta?
+				<a routerLink="/medico"> Cadastre-se </a>
+			</p>
+			&nbsp;&nbsp;|&nbsp;&nbsp;
+			<p>Esqueceu a <a href="#esqueceu">senha?</a>
+			</p>
+		</div>
+
+		<button class="btn-submit" mat-flat-button [disabled]="!loginForm.valid">Entrar</button>
+	</form>
+</div>

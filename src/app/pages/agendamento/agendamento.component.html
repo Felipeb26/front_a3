@@ -1,0 +1,83 @@
+<div class="card">
+	<form #agenda="ngForm" (ngSubmit)="agendar(agenda)">
+		<mat-card-title>
+			<h2>{{nome}}</h2>
+		</mat-card-title>
+		<mat-card class="agenda">
+			<div class="field">
+				<mat-form-field appearance="fill" [(value)]="data">
+					<mat-label>agenda</mat-label>
+					<input type="datetime-local" matInput name="data" ngModel (ngModelChange)="showData($event)" (min)="today" id="data">
+				</mat-form-field>
+				<label>{{selectDate | date: "dd/MM/yyyy HH:mm"}}</label>
+			</div>
+			<!--  -->
+			<div class="field">
+				<mat-form-field appearance="fill">
+					<mat-label>especialidade</mat-label>
+					<mat-select name="especialidade" ngModel [(value)]="especial"
+						(valueChange)="selectEspecialidade(especial)">
+						<mat-option class="option" *ngFor="let espe of especialidades" [value]="espe.id">
+							{{espe.especialidade}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<label>
+					<a href="https://www.google.com/search?q=o+que+faz+medico+{{espe}}" target="_blank">{{espe}}</a>
+				</label>
+			</div>
+			<!--  -->
+			<div class="field">
+				<mat-form-field appearance="fill">
+					<mat-label>nome</mat-label>
+					<mat-select name="nome" [(value)]="medico" ngModel (valueChange)="selectMedico(medico)">
+						<mat-option class="option" *ngFor="let espe of medicos" [value]="espe.id">
+							{{espe.nome}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<label>{{doc}}</label>
+			</div>
+			<mat-card-subtitle>
+				verificar as informações acima antes de confirmar!
+			</mat-card-subtitle>
+		</mat-card>
+		<!--  -->
+		<button mat-button type="submit">
+			confirmar agendamento?
+		</button>
+	</form>
+	<mat-card class="agendadas">
+		<mat-accordion>
+			<mat-expansion-panel hideToggle>
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						Consultas Agendadas
+					</mat-panel-title>
+					<mat-panel-description>
+						This is a summary of the content
+					</mat-panel-description>
+				</mat-expansion-panel-header>
+				<mat-action-row class="consulta_title">
+					<p>nome</p>
+					<p>email</p>
+					<p>especialidade</p>
+				</mat-action-row>
+				<mat-action-row class="consulta" *ngFor="let doc of especialidades">
+					<p>
+						{{doc.nome}}
+					</p>
+					<p>
+						{{doc.email}}
+					</p>
+					<p>
+						{{doc.especialidade}}
+					</p>
+					<button mat-button>
+						cancelar
+					</button>
+				</mat-action-row>
+			</mat-expansion-panel>
+		</mat-accordion>
+	</mat-card>
+</div>
