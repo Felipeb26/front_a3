@@ -1,106 +1,175 @@
-import { Router } from '@angular/router';
-import { AlertsService } from './../../utils/alerts.service';
-import { EncodesService } from './../../utils/encodes.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Agenda } from 'src/app/models/agenda';
 import { USER } from 'src/app/models/usuario.model';
+import { EndpointsConsultasService } from 'src/app/service/endpoints.consultas.service';
 import { EndpointsService } from 'src/app/service/endpoints.service';
+import { AlertsService } from './../../utils/alerts.service';
+import { EncodesService } from './../../utils/encodes.service';
 
 @Component({
-  selector: 'app-agendamento',
-  templateUrl: './agendamento.component.html',
-  styleUrls: ['./agendamento.component.scss']
+	selector: 'app-agendamento',
+	templateUrl: './agendamento.component.html',
+	styleUrls: ['./agendamento.component.scss']
 })
 export class AgendamentoComponent implements OnInit {
-  local:any=localStorage.getItem("tk")
-  today: any = Date.now().toLocaleString()
-  especialidade: string = ""
-  especialidades: USER[] = []
-  medicos: USER[] = []
+	agendamentos: Agenda[] = [];
+	emailConsulta: string = ""
+	//request consulta -|
 
-  id: string = ""
-  nome: string = ""
-  medico: string = ""
-  especial: string = ""
-  data: any
+	emailMedico: string = ""
+	nomeUser: string = ""
+	emailUser: string = ""
+	telefoneUser: string = ""
 
-  selectDate: any
-  doc: any = ""
-  espe: any = ""
+	//cadatro e inputs -||
+	especialidades: USER[] = []
+	medicos: USER[] = []
+	medico: string = ""
+	selectDate: any
 
-  constructor (
-    private endpoints: EndpointsService,
-    private encodes: EncodesService,
-    private alert:AlertsService,
-    private route:Router
-  ) { }
+	especial: string = ""
+	data: any
+	doc: string = ""
+	espe: any = ""
 
-  ngOnInit(): void {
-    this.decodeToken()
-    this.endpoints.getAllDocs().subscribe(
-      data => {
-        console.log(data)
-        data = data.filter(er => er.crm != null)
-        this.especialidades = data
-      },
-      err => {
-        if(err.status == 401 && this.local != null || undefined){
-          this.alert.infoT("tempo expirado!");
-        }else if (err.status==401 && this.local== null || undefined){
-          this.alert.infoT("tempo expirado!");
-          this.route.navigate(["/login"])
-        }
+	disabled: string = "disabled"
 
-        console.log(err)
-      }
-    );
-  }
+	constructor (
+		private route: Router,
+		private encodes: EncodesService,
+		private alert: AlertsService,
+		private endpoints: EndpointsService,
+		private consultas: EndpointsConsultasService,
+	) { }
+
+	ngOnInit(): void {
+		const local = localStorage.getItem("tk")
+		this.getValuesFromToken();
+		this.consultas.getAllConsultasByParam(encodeURIComponent(this.emailConsulta)).subscribe(
+			data => this.agendamentos = data,
+			error => console.log(error)
+		)
+		this.endpoints.getAllDocs().subscribe(
+			data => {
+				data = data.filter(er => er.crm != null)
+				this.especialidades = data
+			},
+			err => {
+				if (err.status == 401 && local != null || undefined) {
+					this.alert.infoT("tempo expirado!");
+					this.route.navigate(["/login"])
+				} else if (err.status == 401 && local == null || undefined) {
+					this.alert.infoT("necessario logar antes!");
+					this.route.navigate(["/login"])
+				}
+			}
+		);
+	}
+
+	getValuesFromToken() {
+		try {
+			const local = localStorage.getItem("tk")
+			if (local) {
+				const data = this.encodes.decodeString(local)
+				if (data) {
+					const index = data.indexOf(":{")
+					const lastIndex = data.lastIndexOf("},")
+					const user = data!.substring(index + 1, lastIndex + 1);
+					const userData = JSON.parse(user);
+					this.emailConsulta = userData.email;
+					this.emailUser = userData.email;
+					this.nomeUser = userData.nome;
+					this.telefoneUser = userData.telefone;
+				}
+			} else {
+				this.alert.infoT("necessario se logar!");
+				this.route.navigate(["/login"])
+			}
+		} catch (error) {
+			const local = localStorage.getItem("tk")
+			if (local) {
+				const data = this.encodes.decodeString(local)
+				if (data) {
+					const token = this.encodes.decodeString(data);
+					const index = token!.indexOf(":{")
+					const lastIndex = token!.lastIndexOf("},")
+					const user = token!.substring(index + 1, lastIndex + 1);
+					const userData = JSON.parse(user);
+					this.emailConsulta = userData.email;
+					this.emailUser = userData.email;
+					this.nomeUser = userData.nome;
+					this.telefoneUser = userData.telefone;
+				}
+			} else {
+				this.alert.infoT("necessario se logar!");
+				this.route.navigate(["/login"])
+			}
+		}
+	}
+
+	agendar(agenda: NgForm) {
+		const date = agenda.value.data;
+		const doc = this.doc;
+		const especialidade = this.espe[0];
+
+		const data = {
+			nomeMedico: doc,
+			emailMedico: this.emailMedico,
+			especialidadeMedico: especialidade,
+			nomeUser: this.nomeUser,
+			emailUser: this.emailUser,
+			telefoneUser: this.telefoneUser,
+			agenda: date,
+		}
+
+		this.consultas.saveConsulta(data).subscribe(
+			data => {
+				console.log(data);
+				this.alert.sucessT("consulta agendada com sucesso!")
+			},
+			erro => console.log(erro)
+		)
+	}
+
+	selectEspecialidade(value: any) {
+		this.espe = this.especialidades.filter(er => er.id == value).map(ap => ap.especialidade);
+		this.medicos = this.especialidades.filter(er => er.id == value);
+		this.doc = ""
+	}
+
+	selectMedico(value: any) {
+		this.doc = this.medicos.filter(er => er.id == value).map(ap => ap.nome)[0];
+		this.emailMedico = this.medicos.filter(er => er.id).map(ap => ap.email)[0]
+		this.disabled = "false"
+	}
+
+	showData(value: Date) {
+		const date = Date.now();
+		const valor = new Date(value).getTime();
+		if (valor <= new Date(date).getTime()) {
+			this.alert.errorT("só é permitido selecionar uma data superior á hoje!")
+		} else {
+			this.selectDate = value
+		}
+	}
+
+	cancelarConsulta(doc: Agenda) {
+		console.log(doc.id)
+		this.consultas.deleteConsulta(doc.id).subscribe(
+			data => {
+				this.alert.sucessT(data.message);
+				console.log(data)
+			},
+			erro => {
+				console.log(erro)
+			}
+		);
+	}
 
 
-  agendar(agenda: NgForm) {
-    const date = agenda.value.data
-    const doc = this.doc
-    const especialidade = this.espe
-
-    const data = {
-      idUser: this.id,
-      agenda: date,
-      medico: doc,
-      especialidade: especialidade
-    }
-
-    console.table(data)
-  }
-
-  decodeToken() {
-    const value = this.encodes.decodeString(this.local)
-
-    if (value) {
-      const data = this.encodes.decodeString(value)
-      if (data) {
-        const index = data.indexOf(":{")
-        const lastIndex = data.lastIndexOf("},")
-        const user = data?.substring(index + 1, lastIndex + 1);
-        const userData = JSON.parse(user);
-
-        this.id = userData.id;
-        this.nome = userData.nome.toUpperCase();
-      }
-    }
-  }
-
-  selectEspecialidade(value: any) {
-    this.espe = this.especialidades.filter(er => er.id == value).map(ap => ap.especialidade);
-    this.medicos = this.especialidades.filter(er => er.id == value);
-    this.doc = ""
-  }
-
-  selectMedico(value: any) {
-    this.doc = this.medicos.filter(er => er.id == value).map(ap => ap.nome);
-  }
-
-  showData(value: Date) {
-    this.selectDate = value
-  }
-
+	isDisabled(){
+		this.alert.infoT("botão está desabilçidade devido infomações incompleta!")
+	}
 }

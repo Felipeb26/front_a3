@@ -1,0 +1,57 @@
+.card-content {
+	background: var(--myWhite);
+	border: 1px solid var(--myBlack);
+	flex-direction: column;
+	display: flex;
+	position: relative;
+	max-height: 50rem;
+	margin: 0 0 0 0;
+	flex: 4;
+
+	& mat-form-field {
+		box-shadow: 0 -1.5rem 0.3rem -0.2rem var(--myPurple) inset;
+		margin-bottom: 0.5rem;
+		width: 80%;
+	}
+
+	& mat-label {
+		text-transform: uppercase;
+		color: var(--myBlack);
+		font-weight: 600;
+	}
+
+	& input {
+		letter-spacing: 0.1rem;
+		font-weight: 600;
+		color: var(--myBlack);
+	}
+
+	& .content {
+		max-height: 33.5rem;
+		position: relative;
+		overflow: auto;
+	}
+
+	& h2 {
+		text-decoration-color: var(--myBlack);
+		text-decoration: underline;
+		color: var(--myBlack);
+	}
+
+	& table {
+		width: 100%;
+		position: relative;
+		max-height: 10rem;
+		overflow: auto;
+	}
+}
+
+#edit {
+	filter: drop-shadow(0 0 5px var(--myPurple));
+	color: var(--myPurpleShadow);
+}
+
+#delete {
+	filter: drop-shadow(0 0 5px var(--myRedShadow));
+	color: var(--midRed);
+}

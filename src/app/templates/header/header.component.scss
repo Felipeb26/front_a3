@@ -1,150 +1,197 @@
 mat-toolbar {
-    background: var(--myPurple);
-    box-shadow: 0 0 1rem var(--myPurpleShadow);
-    display: flex;
-    width: 100%;
-    height: 5rem;
-    align-items: center;
-    justify-content: space-between;
+	background: var(--myPurple);
+	box-shadow: 0 0 1rem var(--myPurpleShadow);
+	display: flex;
+	width: 100%;
+	height: 6rem;
+	font-size: 1rem;
+	align-items: center;
+	justify-content: space-between;
 
-    & .logo {
-        height: 5rem;
-        width: auto;
-        cursor: pointer;
-        transition: all 1s ease-in-out;
-    }
-    
-    & .logo:hover {
-        filter: drop-shadow(2rem 0 0.1rem var(--myLogo));
-    }
+	& .logo {
+		height: 5rem;
+		width: auto;
+		cursor: pointer;
+		transition: all 1s ease-in-out;
+	}
 
-    & h1 {
-        cursor: pointer;
-        font-style: italic;
-        font-weight: bold;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        transition: all 0.5s ease-in-out;
-        font-size: xx-large;
-        color: var(--myBlack);
-        filter: brightness(1.75);
-        -webkit-text-stroke: 1px var(--myLogo);
-    }
+	& .logo:hover {
+		filter: drop-shadow(1rem 0 0.1rem var(--myLogo));
+	}
 
-    & h1:hover {
-        color: var(--myLogo);
-        letter-spacing: 0.1rem;
-    }
+	& .material-icons {
+		font-size: medium;
+	}
+}
 
-    & .menu {
-        margin: 0 2rem 0 0;
-        border-radius: 50%;
-        background: var(--myPurpleShadow);
-        color: var(--myLogo);
-        transition: all 0.5s ease-out;
-    }
+nav {
+	position: relative;
+	z-index: 2;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 70px;
+	padding: 0 1.5em;
+}
 
-    & .menu:hover {
-        animation: zoom-in-zoom-out 1s ease infinite;
-        box-shadow:
-            0 0 0.5rem 0.2rem var(--myLogo),
-            0 0 1rem 0.5rem var(--myLogo);
-    }
+nav .nav-menu {
+	position: relative;
+	right: 1.5em;
+	top: 0;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+nav .nav-item {
+	display: inline-block;
+}
+
+nav .nav-item>a {
+	display: inline-block;
+	padding: 0 1.5em;
+	line-height: 70px;
+	color: var(--myBlack);
+	text-decoration: none;
+}
+
+nav .btn-hamburger {
+	display: none;
+	position: absolute;
+	right: 1.5em;
+	top: 50%;
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+	transform: translateY(-50%);
+}
+
+nav .btn-hamburger span {
+	display: block;
+	width: 30px;
+	height: 4px;
+	background-color: var(--myBlack);
+	margin: 6px;
+	border-radius: 2px;
+	transition: .3s ease-in-out;
 }
 
 mat-sidenav-container {
-    height: 82.3%;
-    box-shadow: 0 0 1rem var(--myPurpleShadow);
+	height: 82.3%;
+	box-shadow: 0 0 1rem var(--myPurpleShadow);
 }
 
 mat-sidenav,
 mat-sidenav-content {
-    padding: 0.5rem;
-    background: var(--myWhite);
+	padding: 0.5rem;
+	background: var(--myWhite);
 }
+
 
 mat-sidenav {
-    background-color: var(--myPurple);
-    width: 13rem;
-    display: flex;
-    background: var(--myPurple);
+	background-color: var(--myPurple);
+	width: 10rem;
+	display: flex;
+	background: var(--myPurple);
+	& .links {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		text-transform: capitalize;
+	}
 
-    & .links {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        text-transform: uppercase;
-    }
+	& .links>li>a {
+		width: 100%;
+		padding: 12px 0;
+		transition: all 0.5s ease-in-out;
+		font-size: 14px;
+		color: var(--myBlack);
+	}
 
-    & .links>li {
-        margin: 0.5rem 0;
-        padding: 0.6rem 0;
-        width: 80%;
-        box-shadow: 0 0.2rem 0.2rem 0 var(--myLogo);
-        transition: all 0.5s ease-in-out;
-    }
+	& a::after {
+		content: "";
+		background: var(--myLogo);
+		position: absolute;
+		height: 3px;
+		width: 100%;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transform: scale(0, 0.8);
+		transition: 0.5s ease-in-out;
+	}
 
-    & .links>li>a {
-        width: 100%;
-        text-decoration: underline;
-        padding: 0.5rem 0;
-        font-weight: bold;
-        letter-spacing: 0.2rem;
-        transition: all 0.5s ease-in-out;
-        font-size: 1.1rem;
-        color: var(--myBlack);
-    }
-
-    & .links>li:hover {
-        animation: zoom-in-zoom-out 1s ease normal;
-        box-shadow: 0 0 0.5rem var(--myLogo);
-        color: var(--myLogo);
-    }
-
-    & a {
-        position: relative;
-        letter-spacing: 00.5px;
-        outline: none;
-    }
-
-    & a::after {
-        content: "";
-        background: var(--myLogo);
-        position: absolute;
-        height: 3px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        transform: scale(0, 0.8);
-        transition: 0.5s ease-in-out;
-    }
-
-    & a:hover::after {
-        transform: scale(0.8, 0.8);
-    }
+	& a:hover::after {
+		transform: scale(0.8, 0.8);
+	}
 }
 
+nav .btn-hamburger span:nth-child(4),
+nav .btn-hamburger span:nth-child(5) {
+	position: absolute;
+	top: 10px;
+	opacity: .5;
+}
+
+nav .btn-hamburger span:nth-child(4) {
+	transform: rotate(45deg) scale(0);
+}
+
+nav .btn-hamburger span:nth-child(5) {
+	transform: rotate(-45deg) scale(0);
+}
+
+nav.opened .btn-hamburger span:nth-child(4) {
+	opacity: 1;
+	transform: rotate(45deg) scale(1);
+}
+
+nav.opened .btn-hamburger span:nth-child(5) {
+	opacity: 1;
+	transform: rotate(-45deg) scale(1);
+}
+
+nav.opened .btn-hamburger span:nth-child(1),
+nav.opened .btn-hamburger span:nth-child(2),
+nav.opened .btn-hamburger span:nth-child(3) {
+	opacity: 0;
+}
 
 .material-icons {
-    color: var(--myBlack);
-    font-size: xx-large;
+	color: var(--myBlack);
+	font-size: x-large;
 }
 
-@keyframes zoom-in-zoom-out {
-    0% {
-        transform: scale(1, 1);
-    }
-
-    50% {
-        transform: scale(1.1, 1.1);
-    }
-
-    100% {
-        transform: scale(1, 1);
-    }
+.medico{
+	display: none;
 }
 
-@media screen and (max-width: 900) {
-    
+
+@media screen and (max-width: 950px) {
+	nav .nav-menu {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 70px;
+		bottom: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		background-color: #363d4e;
+		transition: bottom .5s ease-in-out;
+		overflow: hidden;
+	}
+
+	nav.opened .nav-menu {
+		bottom: 0;
+	}
+
+	nav .nav-item>a {
+		display: block;
+	}
+
+	nav .btn-hamburger {
+		display: block;
+	}
 }

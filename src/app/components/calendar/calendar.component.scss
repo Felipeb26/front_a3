@@ -1,0 +1,18 @@
+.card{
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-height: 45rem;
+}
+
+full-calendar{
+	width: 100%;
+	max-height: 35rem;
+}
+
+td {
+	padding: 2px 15px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

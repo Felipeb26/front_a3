@@ -1,0 +1,51 @@
+<div class="main">
+	<mat-card class="data">
+		<mat-card-title>
+			meus dados
+		</mat-card-title>
+		<mat-card-content>
+			<div class="docdata nome">
+				<h3>nome:</h3>
+				<p>{{nome}}</p>
+			</div>
+			<div class="docdata">
+				<h3>email:</h3>
+				<p>{{email}}</p>
+			</div>
+			<div class="docdata">
+				<h3>senha:</h3>
+				<p>{{senha}}</p>
+			</div>
+			<div class="docdata">
+				<h3>telefone:</h3>
+				<p>{{telefone}}</p>
+			</div>
+			<div class="docdata">
+				<h3>crm:</h3>
+				<p>{{crm}}</p>
+			</div>
+			<div class="docdata">
+				<h3>especialidade:</h3>
+				<p>{{especialidade}}</p>
+			</div>
+		</mat-card-content>
+		<span>para alterar seus dados necessario ir para seção de usuarios</span>
+		<mat-card-actions>
+			<button class="btnComponent" mat-button changeCompo="ver agenda"
+				#agenda
+				(click)="showAgenda()">
+				<span class="material-icons">
+					date_range
+				</span>
+			</button>
+			<button class="btnComponent" mat-button changeCompo="ver consultas"
+				#consulta
+				(click)="showConsulta()">
+				<fa-icon [icon]="esteto" size="2x"></fa-icon>
+			</button>
+		</mat-card-actions>
+	</mat-card>
+
+	<app-consulta [data]="consultas"></app-consulta>
+	<app-calendar [data]="consultas"></app-calendar>
+</div>

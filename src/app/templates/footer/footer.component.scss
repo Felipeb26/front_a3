@@ -1,194 +1,196 @@
 footer {
-    box-shadow: inset 0 0 1rem var(--myPurpleShadow);
-    background: var(--myPurple);
-    margin: auto;
-    padding: 2rem 0;
+	box-shadow: inset 0 0 1rem var(--myPurpleShadow);
+	background: var(--myPurple);
+	margin: auto;
+	padding: 1rem 0;
 }
 
 .footers {
-    padding: 0 4%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+	padding: 0 4%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 .footerCol {
-    width: 25%;
+	width: 25%;
 
-    & h4 {
-        font-size: 1.2rem;
-        color: var(--myBlack);
-        font-weight: bold;
-        letter-spacing: 0.1rem;
-        position: relative;
-        text-transform: uppercase;
-    }
+	& h4 {
+		font-size: 1.2rem;
+		color: var(--myBlack);
+		position: relative;
+		text-transform: capitalize;
+	}
 
-    & li {
-        margin: 1rem 0;
-    }
+	& li>a {
+		transition: all 0.3s ease-in-out;
+		text-transform: capitalize;
+		color: var(--myBlack);
+		padding: 0.3rem;
+		display: block;
+		position: relative;
+		letter-spacing: 0.1rem;
+		font-size: 0.9rem;
+		font-style: italic;
+		font-weight: 200;
+		font-weight: bold;
+	}
 
-    & li>a {
-        transition: all 0.3s ease-in-out;
-        text-transform: capitalize;
-        color: var(--myBlack);
-        font-size: 1rem;
-        font-weight: 500;
-        display: block;
-        position: relative;
-        outline: none;
-        letter-spacing: 0.1rem;
-        font-style: italic;
-    }
-
-    & li>a:hover {
-        color: var(--myWhite);
-        padding-left: 1rem;
-        text-decoration: underline;
-    }
+	& li>a:hover {
+		color: var(--myLogo);
+		padding-left: 0.8rem;
+		text-decoration: underline;
+	}
 }
 
 .mail {
+	& form {
+		display: flex;
+		margin: 0 0 0.5rem 0;
+		flex-direction: column;
+		padding: 1rem;
+		align-items: flex-start;
+	}
 
-    & form {
-        display: flex;
-        margin: 0 0 1rem 0;
-        flex-direction: column;
-    }
+	& form>button {
+		box-shadow: 0 0 1rem var(--myPurpleShadow);
+		border: 1px solid var(--myBlack);
+		background: var(--myPurpleS);
+		color: var(--myBlack);
+		text-transform: capitalize;
+		font-weight: bold;
+		font-size: 1rem;
+		letter-spacing: 0.1rem;
+		margin: 0.5rem 0 0 0;
+	}
 
-    & form>button {
-        margin: 0.8rem 0 0 0;
-        background: var(--myPurple);
-        text-transform: uppercase;
-        font-weight: bold;
-        letter-spacing: 0.2rem;
-        color: var(--myBlack);
-        box-shadow: 0 0 1rem var(--myPurpleShadow);
-        border: 2px solid var(--myBlack);
-    }
-
-    & form>button:hover{
-        box-shadow: 0 0.5rem 0.5rem var(--myLogo);
-    }
-
+	& form>button:hover {
+		box-shadow: 0 0.1rem 0.5rem var(--myBlack);
+	}
 }
 
 .redes {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    & a {
-        border-radius: 1.6rem 1.3rem 1.3rem 1.6rem;
-        transition: all 0.5s ease-in-out;
-        text-transform: capitalize;
-        letter-spacing: 0.1rem;
-        color: var(--myBlack);
-        margin: 0.3rem 0;
-        font-style: italic;
-        font-weight: 500;
-        width: 70%;
-        display: flex;
-        align-items: center;
-        justify-content: left;
-        cursor: pointer;
-    }
+	& a {
+		border-radius: 1.6rem 1.3rem 1.3rem 1.6rem;
+		transition: all 0.5s ease-in-out;
+		text-transform: capitalize;
+		letter-spacing: 0.1rem;
+		font: 1rem bold;
+		color: var(--myBlack);
+		margin: 0.3rem 0;
+		width: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: left;
+		cursor: pointer;
+	}
 
-    & span {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 0.5rem 0 0;
-        height: 2.8rem;
-        width: 2.8rem;
-        border-radius: 50%;
-        border: 2px solid var(--myBlack);
-        background: var(--myWhite);
-        transition: all 0.5s ease-in-out;
-    }
+	& span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 0.4rem 0 0;
+		height: 2.4rem;
+		width: 2.4rem;
+		border-radius: 60%;
+		background-color: var(--myWhite);
+		transition: all 0.5s ease-in-out;
+	}
 
-    .linkedin {
-        & span {
-            padding: 0.1rem;
-            color: var(--iconBlue);
-        }
+	.linkedin {
+		& span {
+			padding: 0.3rem;
+			color: var(--iconBlue);
+		}
 
-        color: var(--myBlack);
-    }
+		color: var(--myBlack);
+	}
 
-    .mailIcon {
-        & span {
-            padding: 0.1rem;
-            color: var(--iconRed);
-        }
+	.mailIcon {
+		& span {
+			padding: 0.2rem;
+			color: var(--iconRed);
+		}
 
-        color: var(--myBlack);
-    }
+		color: var(--myBlack);
+	}
 
-    .github {
-        & span {
-            padding: 0.2rem;
-            color: var(--myBlack);
-        }
+	.github {
+		& span {
+			padding: 0.2rem;
+			color: var(--myBlack);
+		}
 
-        color: var(--myBlack);
-    }
+		color: var(--myBlack);
+	}
 
-    & .linkedin:hover {
-        border: 3px solid var(--myBlack);
-        background: var(--iconBlue);
-        color: var(--myWhite);
+	& .linkedin:hover {
+		//  border: 2px solid var(--myBlack);
+		background: var(--iconBlue);
+		color: var(--myWhite);
 
-        & span {
-            border: 3px solid var(--myBlack);
-            background: var(--iconBlue);
-            color: var(--myWhite);
-        }
-    }
+		& span {
+			// border: 5px solid var(--myBlack);
+			background: var(--iconBlue);
+			color: var(--myWhite);
+		}
+	}
 
+	& .mailIcon:hover {
+		//    border: 3px solid var(--myBlack);
+		background: var(--iconRed);
+		color: var(--myWhite);
 
-    & .mailIcon:hover {
-        border: 3px solid var(--myBlack);
-        background: var(--iconRed);
-        color: var(--myWhite);
-        font-weight: bold;
+		& span {
+			//        border: 3px solid var(--myBlack);
+			background: var(--iconRed);
+			color: var(--myWhite);
+		}
+	}
 
-        & span {
-            border: 3px solid var(--myBlack);
-            background: var(--iconRed);
-            color: var(--myWhite);
-        }
-    }
+	& .github:hover {
+		//  border: 3px solid var(--myWhite);
+		background: var(--myBlack);
+		color: var(--myWhite);
 
-    & .github:hover {
-        border: 3px solid var(--myWhite);
-        background: var(--myBlack);
-        color: var(--myWhite);
-
-        & span {
-            border: 3px solid var(--myWhite);
-            background: var(--myBlack);
-            color: var(--myWhite);
-        }
-    }
+		& span {
+			//   border: 3px solid var(--myWhite);
+			background: var(--myBlack);
+			color: var(--myWhite);
+		}
+	}
 }
+
 
 mat-form-field,
 mat-label,
 mat-hint {
-    color: var(--myBlack);
+	color: var(--myBlack);
 }
+
+
 
 mat-label,
 mat-hint {
-    text-transform: uppercase;
-    font-weight: 500;
+	text-transform: capitalize;
+	font-weight: 500;
 }
 
+.ng-pristine.ng-valid {
+	width: 280px;
+}
 
-@media (max-width: 900px) {
-    .footerCol {
-        width: 50%;
-        margin: 0 0 2rem 0;
-    }
+@media (max-width: 950px) {
+	.footerCol {
+		width: 50%;
+		margin: 0 0 1.6rem 0;
+	}
+
+	.ng-pristine.ng-valid {
+		width: 160px;
+	}
 }

@@ -1,13 +1,10 @@
 <div class="card">
 	<form #agenda="ngForm" (ngSubmit)="agendar(agenda)">
-		<mat-card-title>
-			<h2>{{nome}}</h2>
-		</mat-card-title>
 		<mat-card class="agenda">
 			<div class="field">
 				<mat-form-field appearance="fill" [(value)]="data">
 					<mat-label>agenda</mat-label>
-					<input type="datetime-local" matInput name="data" ngModel (ngModelChange)="showData($event)" (min)="today" id="data">
+					<input type="datetime-local" matInput name="data" ngModel (ngModelChange)="showData($event)" id="data">
 				</mat-form-field>
 				<label>{{selectDate | date: "dd/MM/yyyy HH:mm"}}</label>
 			</div>
@@ -43,7 +40,7 @@
 			</mat-card-subtitle>
 		</mat-card>
 		<!--  -->
-		<button mat-button type="submit">
+		<button [ngClass]="'isDisabled()' ? 'disabled': 'false'"  mat-button type="submit" [disabled]="disabled">
 			confirmar agendamento?
 		</button>
 	</form>
@@ -55,25 +52,29 @@
 						Consultas Agendadas
 					</mat-panel-title>
 					<mat-panel-description>
-						This is a summary of the content
+						apos cancelar pode demorar ao menos 10 minutos para confirmar!
 					</mat-panel-description>
 				</mat-expansion-panel-header>
 				<mat-action-row class="consulta_title">
 					<p>nome</p>
 					<p>email</p>
 					<p>especialidade</p>
+					<p>data</p>
 				</mat-action-row>
-				<mat-action-row class="consulta" *ngFor="let doc of especialidades">
+				<mat-action-row class="consulta" *ngFor="let doc of agendamentos">
 					<p>
-						{{doc.nome}}
+						{{doc.nomeMedico}}
 					</p>
 					<p>
-						{{doc.email}}
+						{{doc.emailMedico}}
 					</p>
 					<p>
-						{{doc.especialidade}}
+						{{doc.especialidadeMedico}}
 					</p>
-					<button mat-button>
+					<p>
+						{{doc.agenda}}
+					</p>
+					<button mat-button (click)="cancelarConsulta(doc)">
 						cancelar
 					</button>
 				</mat-action-row>

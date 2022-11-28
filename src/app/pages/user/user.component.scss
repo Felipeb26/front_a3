@@ -1,7 +1,7 @@
 .card {
-    box-shadow: 0 0 1.5rem var(--myPurpleShadow);
+    //box-shadow: 0 0 1.5rem var(--myPurpleShadow);
     justify-content: space-between;
-    border-radius: 5px;
+    border-radius: 10px;
     flex-wrap: wrap;
     padding: 1rem;
     margin: 5% 3%;
@@ -20,11 +20,12 @@
             & button {
                 transition: all 0.3s ease-in-out;
                 box-shadow: 0 0 0.8rem var(--myPurpleShadow);
+					     border: 1px solid var(--myBlack);
+
                 background: var(--myPurple);
-                text-transform: uppercase;
+                text-transform: capitalize;
                 letter-spacing: 0.2rem;
                 color: var(--myBlack);
-                font-weight: bold;
                 margin: 1rem 1.2rem;
             }
 
@@ -41,9 +42,10 @@
 
         & button {
             box-shadow: 0 0 0.3rem var(--myPurpleShadow);
-            text-transform: uppercase;
+				    border: 1px solid var(--myBlack);
+
+            text-transform: capitalize;
             letter-spacing: 0.2rem;
-            font-weight: bold;
             color: var(--myBlack);
             background: var(--myPurple);
         }
@@ -51,11 +53,12 @@
 }
 
 mat-form-field {
-    box-shadow: inset 0 0 5rem var(--myPurple);
+    box-shadow: 0 0 0.5rem var(--myBlack);
     margin: 0 0 2rem 0;
+	 border-radius: 10px ;
 
     & mat-label {
-        text-transform: uppercase;
+        text-transform: capitalize;
         letter-spacing: 0.1rem;
         font-weight: 500;
         font-style: italic;
@@ -78,7 +81,7 @@ mat-form-field {
 
 mat-checkbox {
     text-decoration: underline var(--myBlack);
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 500;
     letter-spacing: 0.1rem;
     color: var(--myBlack);

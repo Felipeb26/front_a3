@@ -1,127 +1,139 @@
 .card {
-    margin: 5% 3%;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background: var(--myWhite);
-    box-shadow: 0 0 1rem var(--myPurpleShadow);
+	margin: 5% 3%;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	background: var(--myWhite);
+	box-shadow: 0 0 1rem var(--myPurple);
 }
 
 .card:hover {
-    box-shadow: 0 0 1rem var(--myLogo);
+	box-shadow: 0 0 1rem var(--myPurpleShadow);
 }
 
 .cadastro-form {
-    display: flex;
-    flex-direction: column;
+	flex-direction: column;
+	display: flex;
+
+	& h2 {
+		margin: 1rem 0 1rem 0;
+	}
 }
 
 .dadosBase {
-    display: flex;
+	display: flex;
 
-    .dadosIdent {
-        flex: 1;
-        flex-direction: column;
+	.dadosIdent {
+		flex: 1;
+		flex-direction: column;
 
-        & mat-form-field {
-            width: 80%;
-        }
-    }
+		& mat-form-field {
+			width: 80%;
+		}
+	}
 
-    .dadosContato {
-        flex: 1;
+	.dadosMedico {
+		flex: 1;
 
-        & mat-accordion {
-            letter-spacing: 00.2rem;
-            background: var(--myWhite);
-            text-transform: uppercase;
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            text-decoration-color: var(--myPurpleShadow);
-        }
+		& mat-checkbox {
+			margin: 0 0 0.8rem 0;
+			text-decoration: underline;
+			text-transform: capitalize;
+			letter-spacing: 0.1rem;
+			font-weight: bold;
+			color: var(--myBlack);
+		}
 
-        & mat-expansion-panel-header {
-            box-shadow: 0 0 0.8rem var(--myPurpleShadow);
-        }
+		& mat-accordion {
+			background: var(--myWhite);
+			text-transform: capitalize;
+			text-decoration-thickness: 2px;
+			text-decoration-color: var(--myPurpleShadow);
+		}
 
-        & mat-panel-description {
-            color: var(--midRed);
-            font-weight: bold;
-        }
+		& mat-expansion-panel-header {
+			box-shadow: 0 0 0.8rem var(--myPurpleShadow);
+		}
 
-        & .tel {
-            margin: 1rem 0 0 0;
-        }
+		& mat-panel-description {
+			color: var(--midRed);
+		}
 
-        & mat-form-field {
-            width: 90%;
-        }
+		& .tel {
+			margin: 1rem 0 0 0;
+		}
 
-        & .password {
-            cursor: pointer;
-        }
+		& mat-form-field {
+			width: 90%;
+		}
 
-        & .password:hover {
-            color: var(--myPurpleShadow);
-        }
-    }
+		& .password {
+			cursor: pointer;
+		}
+
+		& .password:hover {
+			color: var(--myPurpleShadow);
+		}
+	}
 }
 
 .medico {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    & mat-form-field {
-        width: 40%;
-    }
+	& mat-form-field {
+		width: 40%;
+	}
 }
 
 h2,
 mat-form-field,
 mat-label {
-    color: var(--myBlack);
-    font-weight: bold;
-    letter-spacing: 0.1rem;
-    font-style: italic;
-    text-transform: uppercase;
+	color: var(--myBlack);
+	letter-spacing: 0.1rem;
+	text-transform: capitalize;
+}
+
+mat-form-field {
+	font-style: italic;
 }
 
 mat-expansion-panel {
-    box-shadow: 0 0 5rem var(--myPurpleShadow);
-    background: var(--myWhite);
+	box-shadow: 0 0 5rem var(--myPurpleShadow);
+	background: var(--myWhite);
 
-    & mat-panel-title {
-        color: var(--myBlack);
-        font-weight: bold;
-    }
+	& mat-panel-title {
+		color: var(--myBlack);
+		font-weight: bold;
+	}
 }
 
 input {
-    letter-spacing: 0.1rem;
-    font-size: larger;
+	letter-spacing: 0.1rem;
+	font-size: larger;
 }
 
 .cadastar {
-    box-shadow: 0 0 0.5rem var(--myPurpleShadow);
-    background: var(--myPurple);
-    color: var(--myBlack);
-    width: auto;
-    border: 2px solid var(--myWhite);
-    margin: 1rem 40%;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    border-radius: 5px;
-    padding: 0.5rem;
-    font-size: medium;
+	box-shadow: 0 0 0.2rem var(--myPurpleShadow);
+	background: var(--myPurple);
+	color: var(--myBlack);
+	width: auto;
+	border: 1px solid var(--myBlack);
+	margin: 1rem 40%;
+	text-transform: capitalize;
+	letter-spacing: 0.2rem;
+	border-radius: 5px;
+	padding: 0.5rem;
+	font-size: medium;
 }
 
 .cadastar:hover {
-    box-shadow: 0 0 0.8rem var(--myLogo);
+	box-shadow: 0 0 0.8rem var(--myLogo);
 }
 
 @media screen and (max-width: 1365px) {
-    .card {
-        margin: 5% 10%;
-        width: 80%;
-        height: 80%;
-    }
+	.card {
+		margin: 5% 10%;
+		width: 80%;
+		height: 80%;
+	}
 }

@@ -44,6 +44,10 @@
 							"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
 							"node_modules/ngx-spinner/animations/ball-scale-multiple.css",
 							"./node_modules/sweetalert2/src/sweetalert2.scss",
+							"./node_modules/@fullcalendar/common/main.css",
+							"./node_modules/@fullcalendar/timegrid/main.css",
+							"./node_modules/@fullcalendar/list/main.css",
+							"./node_modules/@fullcalendar/daygrid/main.css",
 							"src/styles.scss"
 						],
 						"scripts": []
@@ -53,13 +57,13 @@
 							"budgets": [
 								{
 									"type": "initial",
-									"maximumWarning": "500kb",
-									"maximumError": "1mb"
+									"maximumWarning": "2mb",
+									"maximumError": "5mb"
 								},
 								{
 									"type": "anyComponentStyle",
-									"maximumWarning": "2kb",
-									"maximumError": "4kb"
+									"maximumWarning": "2mb",
+									"maximumError": "5mb"
 								}
 							],
 							"fileReplacements": [
@@ -71,7 +75,7 @@
 							"outputHashing": "all"
 						},
 						"development": {
-							"buildOptimizer": false,
+							"buildOptimizer": true,
 							"optimization": false,
 							"vendorChunk": true,
 							"extractLicenses": false,

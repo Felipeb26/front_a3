@@ -1,0 +1,33 @@
+.dados {
+	flex-direction: column;
+	display: flex;
+	width: 35rem;
+	padding: 1rem;
+
+	& h1 {
+		text-transform: capitalize;
+	}
+
+	& mat-form-field {
+		width: 100%;
+	}
+
+	& mat-label {
+		width: 100%;
+	}
+
+	& input {
+		width: 100%;
+	}
+}
+
+button {
+	text-transform: uppercase;
+	box-shadow: 0 0 1rem var(--myBlack);
+	background: var(--myPurple);
+	color: var(--myBlack);
+}
+
+button:hover {
+	box-shadow: 0 0 1rem var(--myBlack);
+}

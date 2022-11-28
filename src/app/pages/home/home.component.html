@@ -1,22 +1,41 @@
+<div class="carrosel">
+	<swiper [slidesPerView]="1" [spaceBetween]="10" [navigation]="true" [pagination]="{ clickable: true }">
+
+		<ng-template swiperSlide>
+			<img src="../assets/img/carrossel1.png">
+		</ng-template>
+		<ng-template swiperSlide>
+			<img src="../assets/img/carrossel2.png">
+		</ng-template>
+		<ng-template swiperSlide>
+			<img src="../assets/img/carrossel3.png">
+		</ng-template>
+	</swiper>
+</div>
+
 <div class="home">
-    <mat-card class="cardDireita">
-        <mat-card-title>
-            <h1>Grupo Origami Saude</h1>
-        </mat-card-title>
-        <mat-card-subtitle>
-            Um grupo com motivação e empenho em cuidar de você
-        </mat-card-subtitle>
-        <img class="imgDoctor" src="{{doctor}}" alt="doctor">
-    </mat-card>
-    <mat-card class="cardEsquerda">
-        <mat-card-title>
-            <h1>titulo outro card</h1>
-        </mat-card-title>
-        <mat-card-subtitle>
-            subititulo
-        </mat-card-subtitle>
-        <mat-card-content>
-            <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quidem consectetur ea impedit iure mollitia eum at odio natus magni expedita, velit dignissimos harum reprehenderit veritatis eligendi dolorum odit delectus!Lorem Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam aperiam quibusdam tempore aliquam temporibus consectetur non voluptatum accusamus cumque illum, inventore doloremque quas dicta incidunt totam deserunt facere sunt rem? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore incidunt minus consequuntur assumenda, vel odit porro expedita quis odio iusto placeat laudantium officia esse nesciunt ea vitae eos saepe non.</p>
-        </mat-card-content>
-    </mat-card>
+	<mat-card class="cardEsquerda">
+		<mat-card-title>
+			<h1>Grupo Origami Saude</h1>
+		</mat-card-title>
+		<mat-card-subtitle>
+			Um grupo com motivação e empenho em cuidar de você
+		</mat-card-subtitle>
+
+		<mat-card-content>
+			<p class="content">A Origami Saúde é um sistema de agendamento de consultas para clinicas médicas. A nossa
+				missão é facilitar e agilizar a
+				rotina do paciente através de um sistema simplificado, ágil e eficaz.
+
+				Trabalhamos para que o paciente desfrute de uma experiencia agradável e encontre o melhor especialista para
+				auxilia-lo
+				em seu tratamento.
+
+				Ajudamos médicos a gerenciar sua agenda com dias e horarios adequados com a sua disponibilidade.
+
+				A nossa solução online de agendamento tem como objetivo relacionar médicos e pacientes de forma pratica, e
+				assim tornar
+				a experiencia dos pacientes cada vez mais humanizada.</p>
+		</mat-card-content>
+	</mat-card>
 </div>

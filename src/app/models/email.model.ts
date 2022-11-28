@@ -1,6 +1,7 @@
-export interface MAil{
-    para:string,
-    assunto:string
-    mensagem:string,
-    modelo?:string
+export interface MAil {
+	user?: string,
+	para?: string,
+	assunto?: string
+	mensagem?: string,
+	modelo?: string
 }

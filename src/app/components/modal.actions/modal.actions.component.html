@@ -1,0 +1,34 @@
+<div class="dados">
+	<h1>
+		{{requestType}} Consulta
+	</h1>
+	<mat-form-field floatLabel="never" appearance="fill">
+		<mat-label>{{nome }}</mat-label>
+		<input type="text" matInput disabled>
+	</mat-form-field>
+	<mat-form-field floatLabel="never" appearance="fill">
+		<mat-label>{{email}}</mat-label>
+		<input type="text" matInput disabled>
+	</mat-form-field>
+	<mat-form-field floatLabel="never" appearance="fill">
+		<mat-label>{{telefone}}</mat-label>
+		<input type="text" matInput disabled>
+	</mat-form-field>
+	<mat-form-field floatLabel="never" appearance="fill">
+		<mat-label>{{prioridade}}</mat-label>
+		<mat-select ngModel name="priorid" (selectionChange)="selectPriorid(priorid)" [(value)]="priorid"
+			[disabled]="disabled">
+			<mat-option *ngFor="let priorid of prioridades" [value]="priorid.value">
+				{{priorid.value}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<mat-form-field appearance="fill" [(value)]="selecteDate">
+		<mat-label>agenda</mat-label>
+		<input type="datetime-local" matInput name="data" ngModel (min)="today" id="data"
+		(ngModelChange)="selectDate($event)" [disabled]="disabled">
+	</mat-form-field>
+	<button mat-raised-button (click)="method()">
+		{{action}}
+	</button>
+</div>

@@ -1,58 +1,132 @@
 <app-loading></app-loading>
 <mat-toolbar>
-    <img class="logo" src="{{logo}}" alt="logo" routerLink="" (click)="open=!open">
-    <h1 routerLink="">origami saúde</h1>
-    <button class="menu" mat-icon-button (click)="open=!open">
-        <mat-icon>menu</mat-icon>
-    </button>
+	<img class="logo" src="{{logo}}" alt="logo" routerLink="" (click)="open=false">
+	<nav>
+		<button type="button" class="btn-hamburger" data-action="nav-toggle" (click)="open=!open">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+
+		<ul class="nav-menu">
+			<li class="nav-item"><a href="">
+					<span class="material-icons">
+						home
+					</span>
+					Home
+				</a></li>
+
+			<li class="nav-item"><a href="agenda">
+					<span class="material-icons">
+						date_range
+					</span>
+					Calendario
+				</a></li>
+
+			<li class="nav-item"><a href="cadastro">
+					<span class="material-icons">
+						assignment
+					</span>Cadastro
+				</a></li>
+
+			<li class="nav-item"><a routerLink="about">
+					<span class="material-icons">
+						help
+					</span>
+					Ajuda
+				</a></li>
+			<li class="nav-item"><a href="user">
+					<span class="material-icons">
+						account_circle
+					</span>
+					Usuário
+				</a></li>
+			<li class="nav-item medico">
+				<a routerLink="medico">
+					<fa-icon [icon]="esteto" size="1x"></fa-icon>
+					controle
+				</a>
+			</li>
+			<li class="nav-item"><a routerLink="login" (click)=logout()>
+					<span class="material-icons">
+						logout
+					</span>
+				</a></li>
+
+			<li class="nav-item"><a mat-button (click)="themeMode()">
+					<span class="material-icons mode">
+						{{mode}}
+					</span>
+
+				</a></li>
+		</ul>
+
+	</nav>
 </mat-toolbar>
+
 <mat-sidenav-container>
-    <mat-sidenav mode="side" [(opened)]="open" position="end">
-        <ul class="links">
-            <li><a mat-button routerLink="">
-                    <span class="material-icons">
-                        home
-                    </span>
-                </a></li>
-            <li><a mat-button routerLink="cadastro">cadastro</a></li>
-            <li>
-                <a mat-button routerLink="agenda">
-                    <span class="material-icons">
-                        date_range
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a mat-button routerLink="about">
-                    <span class="material-icons">
-                        help
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a mat-button routerLink="user">
-                    <span class="material-icons">
-                        account_circle
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a mat-button routerLink="login" (click)="logout()">
-                    <span class="material-icons">
-                        logout
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a mat-button (click)="themeMode()">
-                    <span class="material-icons mode">
-                        {{mode}}
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
+	<mat-sidenav #sidenav="matSidenav" [(opened)]="open" position="end">
+		<ul class="nav-toggle">
+			<li><a mat-button routerLink="">
+					<span class="material-icons">
+						home
+					</span>
+					Home
+				</a></li>
+
+			<li><a mat-button routerLink="cadastro">
+					<span class="material-icons">
+						assignment
+					</span>Cadastro
+				</a></li>
+
+			<li><a mat-button routerLink="agenda">
+					<span class="material-icons">
+						date_range
+					</span>
+					Calendario
+				</a></li>
+
+			<li><a mat-button routerLink="about">
+					<span class="material-icons">
+						help
+					</span>
+					Ajuda
+				</a></li>
+
+			<li><a mat-button routerLink="user">
+					<span class="material-icons">
+						account_circle
+					</span>
+					Usuário
+				</a></li>
+			<li>
+				<a mat-button routerLink="medico">
+					<fa-icon [icon]="esteto" size="1x"></fa-icon>
+					controle
+				</a>
+			</li>
+			<li><a mat-button routerLink="login" (click)=logout()>
+					<span class="material-icons">
+						logout
+					</span>
+					Sair da Conta
+				</a></li>
+
+			<li><a mat-button (click)="themeMode()">
+					<span class="material-icons mode">
+						{{mode}}
+					</span>
+					Contraste
+				</a></li>
+		</ul>
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+
+		<router-outlet></router-outlet>
+
+	</mat-sidenav-content>
+
 </mat-sidenav-container>

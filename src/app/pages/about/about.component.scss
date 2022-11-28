@@ -1,0 +1,13 @@
+.conteudo-about {
+	border-radius: 15px;
+	justify-content: center;
+	align-items: center;
+	margin: 5%;
+
+	& p {
+		text-align: left;
+		text-justify: auto;
+		font-size: large;
+		line-height: 1.8rem;
+	}
+}
