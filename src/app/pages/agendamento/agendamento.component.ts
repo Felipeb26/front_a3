@@ -36,6 +36,10 @@ export class AgendamentoComponent implements OnInit {
 
 	disabled: string = "disabled"
 
+
+	displayedColumns: string[] = ["nome", "email", "especialidade", "agenda", "actions"]
+
+
 	constructor (
 		private route: Router,
 		private encodes: EncodesService,

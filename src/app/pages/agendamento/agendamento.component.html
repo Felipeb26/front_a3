@@ -39,8 +39,7 @@
 				verificar as informações acima antes de confirmar!
 			</mat-card-subtitle>
 		</mat-card>
-		<!--  -->
-		<button [ngClass]="'isDisabled()' ? 'disabled': 'false'"  mat-button type="submit" [disabled]="disabled">
+		<button [ngClass]="'isDisabled()' ? 'disabled': 'false'" mat-button type="submit" [disabled]="disabled">
 			confirmar agendamento?
 		</button>
 	</form>
@@ -55,29 +54,46 @@
 						apos cancelar pode demorar ao menos 10 minutos para confirmar!
 					</mat-panel-description>
 				</mat-expansion-panel-header>
-				<mat-action-row class="consulta_title">
-					<p>nome</p>
-					<p>email</p>
-					<p>especialidade</p>
-					<p>data</p>
-				</mat-action-row>
-				<mat-action-row class="consulta" *ngFor="let doc of agendamentos">
-					<p>
-						{{doc.nomeMedico}}
-					</p>
-					<p>
-						{{doc.emailMedico}}
-					</p>
-					<p>
-						{{doc.especialidadeMedico}}
-					</p>
-					<p>
-						{{doc.agenda}}
-					</p>
-					<button mat-button (click)="cancelarConsulta(doc)">
-						cancelar
-					</button>
-				</mat-action-row>
+				<table recycleRows mat-table [dataSource]="agendamentos" matSort> 
+
+					<ng-container matColumnDef="nome">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header> medico </th>
+						<td mat-cell *matCellDef="let data"> {{data.nomeMedico}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="email">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+						<td mat-cell *matCellDef="let data"> {{data.emailMedico}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="especialidade">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header> especialidade </th>
+						<td mat-cell *matCellDef="let data"> {{data.especialidadeMedico}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="agenda">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header> Consulta </th>
+						<td mat-cell *matCellDef="let data"> {{data.agenda}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="actions">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header> cancelar </th>
+						<td mat-cell *matCellDef="let data">
+							<span class="icon">
+								<span class="material-icons" mat-button (click)="cancelarConsulta(data)">
+									cancel
+								</span>
+								cancelar
+							</span>
+						</td>
+					</ng-container>
+
+					<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+					<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+					<tr class="mat-row" *matNoDataRow>
+					</tr>
+				</table>
 			</mat-expansion-panel>
 		</mat-accordion>
 	</mat-card>

@@ -10,4 +10,15 @@
 		font-size: large;
 		line-height: 1.8rem;
 	}
+
+	& label {
+		flex-direction: column;
+		display: flex;
+		margin: 0 40%;
+	}
+
+	& img {
+		height: 15rem;
+		width: 15rem;
+	}
 }

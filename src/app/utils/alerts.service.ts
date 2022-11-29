@@ -92,30 +92,24 @@ export class AlertsService {
 
 	github: string = `<div style="width:100%;display:flex;justify-content:space-evenly;">
             <a style="display: flex;flex-direction: column; color: black;align-items: center;font-weight: bold;" href="${this.felipe[0]}" target="_blank" rel="noopener noreferrer">
-               <img style="height: 8rem;width: 8rem;border-radius:5px;" src="${this.felipe[0]}.png">
                Felipe Batista
             </a>
             <a style="display: flex;flex-direction: column; color: black;align-items: center;font-weight: bold;" href="${this.aline[0]}" target="_blank" rel="noopener noreferrer">
-               <img style="height: 8rem;width: 8rem;border-radius:5px;" src="${this.aline[0]}.png">
                Aline
             </a>
             <a style="display: flex;flex-direction: column; color: black;align-items: center;font-weight: bold;" href="${this.gabi[0]}" target="_blank" rel="noopener noreferrer">
-               <img style="height: 8rem;width: 8rem;border-radius:5px;" src="${this.gabi[0]}.png">
                Gabriela
             </a>
 			</div>`
 
 	linkedin: string = `<div style="width:100%;display:flex;justify-content:space-evenly;">
             <a style="display: flex;flex-direction: column; color: black;align-items: center;font-weight: bold;" href="${this.felipe[1]}" target="_blank" rel="noopener noreferrer">
-               <img style="height: 8rem;width: 8rem;border-radius:5px;" src="${this.felipe[0]}.png">
                Felipe Batista
             </a>
             <a style="display: flex;flex-direction: column; color: black;align-items: center;font-weight: bold;" href="${this.aline[1]}" target="_blank" rel="noopener noreferrer">
-               <img style="height: 8rem;width: 8rem;border-radius:5px;" src="${this.aline[0]}.png">
                Aline
             </a>
             <a style="display: flex;flex-direction: column; color: black;align-items: center;font-weight: bold;" href="${this.gabi[1]}" target="_blank" rel="noopener noreferrer">
-               <img style="height: 8rem;width: 8rem;border-radius:5px;" src="${this.gabi[0]}.png">
                Gabriela
             </a>
 			</div>`
@@ -138,6 +132,7 @@ export class AlertsService {
 			showConfirmButton: false,
 			showCloseButton: true,
 			timer: 3000,
+			width: 320,
 			timerProgressBar: true,
 			didOpen: (toast) => {
 				toast.addEventListener('mouseenter', Swal.stopTimer)
