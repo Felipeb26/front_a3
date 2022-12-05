@@ -51,8 +51,8 @@ export class LoginComponent implements OnInit {
 				if (token != null || token!.length > 0) {
 					localStorage.setItem("tk", token!)
 					this.decodeToken()
-					this.showDocIcon()
 					this.router.navigate(["/"])
+					this.showDocIcon()
 					this.alert.sucessT("usuario logado com sucesso");
 					setTimeout(() => { this.alert.infoReload("necessario recarregar a pagina, para atualizar os dados!") }, 2500)
 				} else {

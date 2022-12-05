@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
 		this.showDialog()
 		this.roles.showIcon()
 			.then(en => {
-				if(en == "false"){
+				if(en === "false"){
 					this.roles.ShowAndHide(this.medicoIcon,"none");
 				}else{
 					this.roles.ShowAndHide(this.medicoIcon, "");

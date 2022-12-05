@@ -103,62 +103,69 @@ footer {
 
 	.linkedin {
 		& span {
-			padding: 0.3rem;
+			padding: 1.4rem;
 			color: var(--iconBlue);
 		}
 
+		border: 0.5px solid var(--myBlack);
+		transition: all 0.5s ease-in-out;
+		text-transform: uppercase;
+		font-weight: bold;
 		color: var(--myBlack);
 	}
 
 	.mailIcon {
 		& span {
-			padding: 0.2rem;
+			padding: 1.4rem;
 			color: var(--iconRed);
 		}
 
+		border: 0.5px solid var(--myBlack);
+		transition: all 0.5s ease-in-out;
+		text-transform: uppercase;
+		font-weight: bold;
 		color: var(--myBlack);
 	}
 
 	.github {
 		& span {
-			padding: 0.2rem;
+			padding: 1.4rem;
 			color: var(--myBlack);
 		}
 
+		border: 0.5px solid var(--myBlack);
+		transition: all 0.5s ease-in-out;
+		text-transform: uppercase;
+		font-weight: bold;
 		color: var(--myBlack);
 	}
 
 	& .linkedin:hover {
-		//  border: 2px solid var(--myBlack);
+		border: 2px solid var(--myBlack);
 		background: var(--iconBlue);
-		color: var(--myWhite);
 
 		& span {
-			// border: 5px solid var(--myBlack);
 			background: var(--iconBlue);
-			color: var(--myWhite);
+			color: var(--myBlack);
 		}
 	}
 
 	& .mailIcon:hover {
-		//    border: 3px solid var(--myBlack);
+		border: 2px solid var(--myBlack);
 		background: var(--iconRed);
-		color: var(--myWhite);
 
 		& span {
-			//        border: 3px solid var(--myBlack);
 			background: var(--iconRed);
-			color: var(--myWhite);
+			color: var(--myBlack);
 		}
 	}
 
 	& .github:hover {
-		//  border: 3px solid var(--myWhite);
+		border: 2px solid var(--myWhite);
 		background: var(--myBlack);
 		color: var(--myWhite);
 
 		& span {
-			//   border: 3px solid var(--myWhite);
 			background: var(--myBlack);
 			color: var(--myWhite);
 		}
