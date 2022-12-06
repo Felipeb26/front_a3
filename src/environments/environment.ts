@@ -15,6 +15,6 @@ export const environment = {
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
 export const API_PATH = "http://localhost:3001/";
-export const CRUD_PATH = "http://localhost:3000/";
-export const MICRO1 = "crud";
-export const MICRO2 = "mail";
+export const CRUD = "crud"
+export const MAIL = "mail";
+export const CONSULTA = "consult";

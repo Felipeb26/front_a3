@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EndpointsConsultasService } from 'src/app/service/endpoints.consultas.service';
 import { EndpointsService } from 'src/app/service/endpoints.service';
 import { Endpoints2Service } from 'src/app/service/endpoints2.service';
 import { AlertsService } from 'src/app/utils/alerts.service';
@@ -97,17 +96,25 @@ export class CadastroComponent implements OnInit {
 
 		this.endpoints.salvarUsuario(save).subscribe(
 			(result: USER) => {
-				const mail = {
-					user: result.nome,
-					para: result.email
-				}
+
 				if (result.crm != null || undefined) {
-					this.endpoint2.boasVindasUser(mail);
+					const mail = {
+						"user": result.nome,
+						"para": result.email,
+						"modelo": "bemvindo_user"
+					}
+					this.endpoint2.enviarEmail(mail);
+				} else {
+					const mail = {
+						"user": result.nome,
+						"para": result.email,
+						"modelo": "bemvindo_doc"
+					}
+					this.endpoint2.enviarEmail(mail).subscribe(
+						data => console.log(data),
+						erro => console.log(erro)
+					);
 				}
-				this.endpoint2.boasVindasDoc(mail).subscribe(
-					data => console.log(data),
-					erro => console.log(erro)
-				);
 				setTimeout(() => {
 					this.route.navigate([""]);
 					this.alert.sucessT(`Usuario ${result.nome} cadastrado!`)

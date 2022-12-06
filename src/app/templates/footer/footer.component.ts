@@ -31,6 +31,7 @@ export class FooterComponent implements OnInit {
 		const toSend = {
 			"assunto": mail.assunto,
 			"mensagem": mail.mensagem,
+			"modelo":"simple"
 		}
 
 		this.endpoints.enviarEmail(toSend).subscribe(

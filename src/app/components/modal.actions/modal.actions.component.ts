@@ -128,8 +128,8 @@ export class ModalActionsComponent implements OnInit {
 			data => {
 				this.alert.sucessT(`Consulta de ${data.nomeUser} reagendada com sucesso!`);
 
-				const mail = { para: data.nomeUser }
-				this.endpoints2.consultaReagendada(mail).subscribe(data => console.log(data), erro => console.log(erro))
+				const mail = { para: data.nomeUser, modelo: "reagendamento" }
+				this.endpoints2.enviarEmail(mail).subscribe(data => console.log(data), erro => console.log(erro))
 			},
 			erro => {
 				const error = erro.erro;
@@ -147,8 +147,8 @@ export class ModalActionsComponent implements OnInit {
 		this.consultas.deleteConsulta(id).subscribe(
 			data => {
 				console.log(data);
-				const mail = { para: data.nomeUser }
-				this.endpoints2.consultaDeletada(mail).subscribe(data => console.log(data), erro => console.log(erro))
+				const mail = { para: data.nomeUser, modelo: "deleta" }
+				this.endpoints2.enviarEmail(mail).subscribe(data => console.log(data), erro => console.log(erro))
 				this.alert.sucessT(data.message)
 				this.table.renderRows();
 			},
