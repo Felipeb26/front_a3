@@ -31,17 +31,16 @@
 		</mat-card-content>
 		<span>para alterar seus dados necessario ir para seção de usuarios</span>
 		<mat-card-actions>
-			<button class="btnComponent" mat-button changeCompo="ver agenda"
-				#agenda
-				(click)="showAgenda()">
-				<span class="material-icons">
+			<button class="btnComponent" mat-button changeCompo="ver agenda" #agenda (click)="showAgenda()">
+				<span class="material-icons agendaIcon">
 					date_range
 				</span>
+				<!-- <mat-spinner class="agendaSpin"></mat-spinner> -->
 			</button>
-			<button class="btnComponent" mat-button changeCompo="ver consultas"
-				#consulta
-				(click)="showConsulta()">
-				<fa-icon [icon]="esteto" size="2x"></fa-icon>
+			<button class="btnComponent" mat-button changeCompo="ver consultas" #consulta (click)="showConsulta()"
+				[class.spinner]="loading">
+				<fa-icon class="consultaIcon" [icon]="esteto" size="2x"></fa-icon>
+				<!-- <mat-spinner class="consultSpin"></mat-spinner> -->
 			</button>
 		</mat-card-actions>
 	</mat-card>

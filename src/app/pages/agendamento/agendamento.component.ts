@@ -36,9 +36,7 @@ export class AgendamentoComponent implements OnInit {
 
 	disabled: string = "disabled"
 
-
 	displayedColumns: string[] = ["nome", "email", "especialidade", "agenda", "actions"]
-
 
 	constructor (
 		private route: Router,
@@ -171,7 +169,6 @@ export class AgendamentoComponent implements OnInit {
 			}
 		);
 	}
-
 
 	isDisabled(){
 		this.alert.infoT("botão está desabilçidade devido infomações incompleta!")
