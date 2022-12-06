@@ -14,7 +14,7 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
-export const API_PATH = "http://localhost:3001/";
+export const API_PATH = "https://gateway-sigma.vercel.app/";
 export const CRUD = "crud"
 export const MAIL = "mail";
 export const CONSULTA = "consult";
