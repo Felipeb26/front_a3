@@ -34,7 +34,7 @@ export class FooterComponent implements OnInit {
 			"modelo":"simple"
 		}
 
-		this.endpoints.enviarEmail(toSend).subscribe(
+		this.endpoints.emailSimples(toSend).subscribe(
 			(data: any) => {
 				this.alert.sucessT(data.message)
 			},
