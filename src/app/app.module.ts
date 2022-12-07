@@ -107,7 +107,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: TokenService, multi: true },
-		// { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }
+		{ provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }
 	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],

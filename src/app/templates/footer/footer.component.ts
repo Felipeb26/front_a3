@@ -16,6 +16,9 @@ export class FooterComponent implements OnInit {
 	faFacebook = faFacebook
 	faGithub = faGithub
 	faMail = faEnvelope
+	assunto: string = ""
+
+	options: Array<string> = ["", "reclamação", "elogio", "sugestão", "informação",]
 
 	@ViewChild('autosize')
 	autosize!: CdkTextareaAutosize;
@@ -31,9 +34,10 @@ export class FooterComponent implements OnInit {
 		const toSend = {
 			"assunto": mail.assunto,
 			"mensagem": mail.mensagem,
-			"modelo":"simple"
+			"modelo": "simple"
 		}
 
+		console.log(mail)
 		this.endpoints.emailSimples(toSend).subscribe(
 			(data: any) => {
 				this.alert.sucessT(data.message)

@@ -49,9 +49,13 @@
 			<form #mail="ngForm" (submit)="sendMail(mail.value)">
 				<mat-form-field appearance="fill">
 					<mat-label>assunto</mat-label>
-					<input type="text" matInput minlength="1" maxlength="50" name="assunto" ngModel>
-					<mat-hint align="end">max 10 caracters</mat-hint>
-				</mat-form-field>
+					<mat-select [(ngModel)]="assunto" name="assunto">
+						<mat-option class="option" *ngFor="let op of options" [value]="op">
+							{{op}}
+						</mat-option>
+					</mat-select>
+					</mat-form-field>
+
 				<mat-form-field appearance="fill">
 					<mat-label>mensagem</mat-label>
 					<textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"

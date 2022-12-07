@@ -56,9 +56,9 @@ footer {
 	& form>button {
 		box-shadow: 0 0 1rem var(--myPurpleShadow);
 		border: 1px solid var(--myBlack);
-		background: var(--myPurpleS);
+		background: var(--myPurpleShadow);
 		color: var(--myBlack);
-		text-transform: capitalize;
+		text-transform: uppercase;
 		font-weight: bold;
 		font-size: 1rem;
 		letter-spacing: 0.1rem;
@@ -66,8 +66,14 @@ footer {
 	}
 
 	& form>button:hover {
-		box-shadow: 0 0.1rem 0.5rem var(--myBlack);
+		box-shadow: 0 0 0.8rem var(--myBlack);
 	}
+
+}
+
+.option {
+	font-weight: 500;
+	text-transform: uppercase;
 }
 
 .redes {
@@ -106,6 +112,7 @@ footer {
 			padding: 1.4rem;
 			color: var(--iconBlue);
 		}
+
 		overflow: hidden;
 		background: var(--myWhite);
 		border: 0.5px solid var(--myBlack);
@@ -134,6 +141,7 @@ footer {
 			padding: 1.4rem;
 			color: var(--myBlack);
 		}
+
 		background: var(--myWhite);
 		border: 0.5px solid var(--myBlack);
 		transition: all 0.5s ease-in-out;
@@ -199,9 +207,13 @@ mat-hint {
 	.ng-pristine.ng-valid {
 		width: 160px;
 	}
-	.linkedin{
-		& span{
-			padding-right: 2rem;
-		}
+
+	.footers {
+		padding: 0;
 	}
+
+	form {
+		width: 100%;
+	}
+
 }
