@@ -123,13 +123,10 @@ mat-form-field {
 .btn-submit {
 	border: 1px solid var(--myBlack);
 	margin: 1rem 0 0.5rem 0;
-	//box-shadow: 0 0 1rem var(--myPurpleShadow);
-	//background: var(--myPurple);
+	box-shadow: 0 0 1rem var(--myPurpleShadow);
+	background: var(--myPurple);
 	color: var(--myBlack);
 	text-transform:capitalize;
-}
-.mat-flat-button.mat-primary.mat-button-disabled, .mat-flat-button.mat-accent.mat-button-disabled, .mat-flat-button.mat-warn.mat-button-disabled, .mat-flat-button.mat-button-disabled.mat-button-disabled, .mat-raised-button.mat-primary.mat-button-disabled, .mat-raised-button.mat-accent.mat-button-disabled, .mat-raised-button.mat-warn.mat-button-disabled, .mat-raised-button.mat-button-disabled.mat-button-disabled, .mat-fab.mat-primary.mat-button-disabled, .mat-fab.mat-accent.mat-button-disabled, .mat-fab.mat-warn.mat-button-disabled, .mat-fab.mat-button-disabled.mat-button-disabled, .mat-mini-fab.mat-primary.mat-button-disabled, .mat-mini-fab.mat-accent.mat-button-disabled, .mat-mini-fab.mat-warn.mat-button-disabled, .mat-mini-fab.mat-button-disabled.mat-button-disabled{
-	color: var(--myBlack);
 }
 
 .btn-submit:hover {

@@ -31,3 +31,9 @@ button {
 button:hover {
 	box-shadow: 0 0 1rem var(--myBlack);
 }
+
+@media screen and (max-width:950px) {
+	.dados{
+		max-width: 20rem;
+	}
+}

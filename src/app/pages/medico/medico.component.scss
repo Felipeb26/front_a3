@@ -95,6 +95,9 @@ app-calendar{
 }
 
 @media (max-width: 900px) {
+	.main::-webkit-scrollbar{
+		// height: 0.2rem;
+	}
 	.data {
 		margin: 0 5rem 5rem 0;
 	}

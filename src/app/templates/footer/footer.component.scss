@@ -106,7 +106,8 @@ footer {
 			padding: 1.4rem;
 			color: var(--iconBlue);
 		}
-
+		overflow: hidden;
+		background: var(--myWhite);
 		border: 0.5px solid var(--myBlack);
 		transition: all 0.5s ease-in-out;
 		text-transform: uppercase;
@@ -120,6 +121,7 @@ footer {
 			color: var(--iconRed);
 		}
 
+		background: var(--myWhite);
 		border: 0.5px solid var(--myBlack);
 		transition: all 0.5s ease-in-out;
 		text-transform: uppercase;
@@ -132,7 +134,7 @@ footer {
 			padding: 1.4rem;
 			color: var(--myBlack);
 		}
-
+		background: var(--myWhite);
 		border: 0.5px solid var(--myBlack);
 		transition: all 0.5s ease-in-out;
 		text-transform: uppercase;
@@ -172,14 +174,11 @@ footer {
 	}
 }
 
-
 mat-form-field,
 mat-label,
 mat-hint {
 	color: var(--myBlack);
 }
-
-
 
 mat-label,
 mat-hint {
@@ -191,7 +190,7 @@ mat-hint {
 	width: 280px;
 }
 
-@media (max-width: 950px) {
+@media screen and (max-width: 900px) {
 	.footerCol {
 		width: 50%;
 		margin: 0 0 1.6rem 0;
@@ -199,5 +198,10 @@ mat-hint {
 
 	.ng-pristine.ng-valid {
 		width: 160px;
+	}
+	.linkedin{
+		& span{
+			padding-right: 2rem;
+		}
 	}
 }

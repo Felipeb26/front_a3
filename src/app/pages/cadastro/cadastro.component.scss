@@ -4,6 +4,7 @@
 	border-radius: 0.5rem;
 	background: var(--myWhite);
 	box-shadow: 0 0 1rem var(--myPurple);
+	transition: all 0.5s ease-in-out;
 }
 
 .card:hover {
@@ -21,6 +22,7 @@
 
 .dadosBase {
 	display: flex;
+	flex-wrap: wrap;
 
 	.dadosIdent {
 		flex: 1;
@@ -116,14 +118,15 @@ input {
 	box-shadow: 0 0 0.2rem var(--myPurpleShadow);
 	background: var(--myPurple);
 	color: var(--myBlack);
-	width: auto;
 	border: 1px solid var(--myBlack);
-	margin: 1rem 40%;
-	text-transform: capitalize;
+	text-transform: uppercase;
 	letter-spacing: 0.2rem;
 	border-radius: 5px;
 	padding: 0.5rem;
 	font-size: medium;
+	font-weight: bold;
+	margin: 0 40%;
+	transition: all 0.5s ease-in-out;
 }
 
 .cadastar:hover {
@@ -135,5 +138,9 @@ input {
 		margin: 5% 10%;
 		width: 80%;
 		height: 80%;
+	}
+
+	.cadastar{
+		margin: 2rem 2rem 0 2rem;
 	}
 }
