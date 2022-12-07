@@ -26,7 +26,7 @@
 	<mat-form-field appearance="fill" [(value)]="selecteDate">
 		<mat-label>agenda</mat-label>
 		<input type="datetime-local" matInput name="data" ngModel (min)="today" id="data"
-		(ngModelChange)="selectDate($event)" [disabled]="disabled">
+			(ngModelChange)="selectDate($event)" [disabled]="disabled">
 	</mat-form-field>
 	<button mat-raised-button (click)="method()">
 		{{action}}

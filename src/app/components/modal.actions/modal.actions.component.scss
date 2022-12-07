@@ -5,6 +5,7 @@
 	padding: 1rem;
 
 	& h1 {
+		text-decoration: underline;
 		text-transform: capitalize;
 	}
 
@@ -34,6 +35,6 @@ button:hover {
 
 @media screen and (max-width:950px) {
 	.dados{
-		max-width: 20rem;
+		max-width: 15rem;
 	}
 }
