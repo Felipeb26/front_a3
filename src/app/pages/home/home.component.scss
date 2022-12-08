@@ -68,8 +68,16 @@
 	.carrosel{
 		margin: 5% 0;
 		width: 100%;
-		height: 8rem;
+		height: 50%;
 	}
+
+	.swiper{
+		// max-height: 9rem;
+		img{
+			height: 12rem;
+		}
+	}
+
 	.cardEsquerda{
 		margin: 10% 5% 5% 5%;
 	}
