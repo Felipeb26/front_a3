@@ -48,6 +48,9 @@ export class EndpointsService {
 		return this.http.get<Medico[]>(`${API_PATH}${CRUD}/docs`)
 			.pipe();
 	}
+	salvarMedico(user: USER): Observable<any> {
+		return this.http.post<any>(`${API_PATH}${CRUD}/docs/`, user);
+	}
 	updateDoc(id: any, user: USER): Observable<any> {
 		return this.http.put<any>(`${API_PATH}${CRUD}/docs/${id}`, user);
 	}
