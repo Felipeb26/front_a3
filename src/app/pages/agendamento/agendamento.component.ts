@@ -5,6 +5,7 @@ import { Agenda } from 'src/app/models/agenda';
 import { USER } from 'src/app/models/usuario.model';
 import { EndpointsConsultasService } from 'src/app/service/endpoints.consultas.service';
 import { EndpointsService } from 'src/app/service/endpoints.service';
+import { RoleVerifyService } from 'src/app/service/role.verify.service';
 import { AlertsService } from './../../utils/alerts.service';
 import { EncodesService } from './../../utils/encodes.service';
 
@@ -35,6 +36,7 @@ export class AgendamentoComponent implements OnInit {
 	espe: any = ""
 
 	disabled: string = "disabled"
+	submit = document.getElementsByClassName("submit") as HTMLCollectionOf<HTMLElement>;
 
 	displayedColumns: string[] = ["nome", "email", "especialidade", "agenda", "actions"]
 
@@ -44,9 +46,11 @@ export class AgendamentoComponent implements OnInit {
 		private alert: AlertsService,
 		private endpoints: EndpointsService,
 		private consultas: EndpointsConsultasService,
+		private service:RoleVerifyService,
 	) { }
 
 	ngOnInit(): void {
+		this.service.ChangeBackGround(this.submit,"#7676764b")
 		const local = localStorage.getItem("tk")
 		this.getValuesFromToken();
 		this.consultas.getAllConsultasByParam(encodeURIComponent(this.emailConsulta)).subscribe(
@@ -125,6 +129,13 @@ export class AgendamentoComponent implements OnInit {
 			telefoneUser: this.telefoneUser,
 			agenda: date,
 		}
+		const agendas = new String(data.agenda);
+		if ((agendas.trim() === "" || undefined) ||
+			(data.nomeMedico == null || undefined) ||
+			(data.especialidadeMedico == null || undefined)) {
+			this.alert.errorT("necessario informar todos os campos!")
+			return;
+		}
 
 		this.consultas.saveConsulta(data).subscribe(
 			data => {
@@ -145,6 +156,7 @@ export class AgendamentoComponent implements OnInit {
 		this.doc = this.medicos.filter(er => er.id == value).map(ap => ap.nome)[0];
 		this.emailMedico = this.medicos.filter(er => er.id).map(ap => ap.email)[0]
 		this.disabled = "false"
+		this.service.ChangeBackGround(this.submit, "var(--myPurple)")
 	}
 
 	showData(value: Date) {
@@ -170,7 +182,5 @@ export class AgendamentoComponent implements OnInit {
 		);
 	}
 
-	isDisabled(){
-		this.alert.infoT("botão está desabilçidade devido infomações incompleta!")
-	}
+
 }

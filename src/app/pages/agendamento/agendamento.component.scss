@@ -62,18 +62,19 @@ mat-panel-description {
 
 		& button {
 			margin: 5%;
-			box-shadow: 0 0 1rem var(--myPurpleShadow);
+			box-shadow: 0 0 1.3rem var(--myPurpleShadow);
 			border: 2px solid var(--myWhite);
 			background: var(--myPurple);
 			text-transform: uppercase;
 			letter-spacing: 0.1rem;
 			font-weight: 500;
 			color: var(--myBlack);
-			transition: all 0.5s ease-in-out;
+			transition: all 0.8s ease-in-out;
 		}
 
 		button:hover {
 			box-shadow: 0 0rem 0.5rem var(--myLogo);
+			opacity: 1;
 		}
 	}
 }
@@ -173,36 +174,40 @@ mat-panel-description {
 
 @media (max-width:950px) {
 	.card {
-		// margin: 0;
-		// padding: 0;
+		display: flex;
+		flex-wrap: wrap;
 
-		// width: 100%;
 		& button {
 			max-width: 10rem;
 		}
 	}
 
 	form {
-		max-width: fit-content;
-		max-height: fit-content;
-		overflow-x: scroll;
-		margin: 0;
-		padding: 0;
+		flex: 1;
 	}
 
-	form::-webkit-scrollbar{
+	form::-webkit-scrollbar {
 		height: 0.3rem;
 	}
-	.agendadas {
-		max-width: 5rem;
-		max-height: fit-content;
-		overflow-x: scroll;
-		margin: 0;
-		padding: 0;
+
+	mat-card-subtitle {
+		display: none;
 	}
 
-	mat-accordion {
+	.field {
+		& mat-form-field {
+			width: 100%;
+		}
+
+		& label {
+			display: none;
+		}
+	}
+
+
+	.agendadas {
 		width: 100%;
+		flex: 1;
 	}
 
 	mat-expansion-panel-header {
@@ -217,11 +222,15 @@ mat-panel-description {
 		padding: 1rem 0;
 	}
 
+	table::-webkit-scrollbar {
+		height: 0.3rem;
+	}
+
 	td,
 	th {
 		white-space: normal;
 		word-wrap: break-word;
-		// max-width: 100%;
+		width: 100%;
 		margin-left: 50%;
 		text-overflow: ellipsis;
 		flex: 1;

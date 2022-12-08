@@ -29,6 +29,11 @@ export class RoleVerifyService {
 			elementos[i].style.display = display;
 		}
 	}
+	ChangeBackGround(elementos: HTMLCollectionOf<HTMLElement>, background: string) {
+		for (let i = 0; i < elementos.length; i++) {
+			elementos[i].style.backgroundColor = background;
+		}
+	}
 
 	prioridade(value: string) {
 		switch (value) {
