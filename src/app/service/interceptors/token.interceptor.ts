@@ -14,16 +14,25 @@ export class TokenService implements HttpInterceptor {
 		private encodes: EncodesService,
 	) { }
 
-
-
 	IsLoggedIn() {
 		const token = localStorage.getItem("tk") != null
 		return token;
 	}
 
+	haveAcess(){
+		const _token = localStorage.getItem("tk") ||"";
+		const _extracted = this.encodes.decodeString(_token);
+		const _decoded = this.encodes.decodeString(_extracted);
+
+		const index = _decoded!.indexOf(":{")
+		const lastIndex = _decoded!.lastIndexOf("},")
+		const user = _decoded!.substring(index + 1, lastIndex + 1);
+		const _data = JSON.parse(user);
+		return _data.role;
+	}
+
 
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
 		if (this.activeRequest === 0) {
 			this.load.show();
 		}
@@ -43,8 +52,6 @@ export class TokenService implements HttpInterceptor {
 					this.load.hide();
 				}
 			})
-		)
-
-
+		);
 	}
 }

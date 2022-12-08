@@ -41,7 +41,7 @@ export class EndpointsService {
 	}
 
 	salvarUsuario(user: USER): Observable<any> {
-		return this.http.post<USER>(`${API_PATH}${CRUD}/users`, user).pipe(first(),)
+		return this.http.post<USER>(`${API_PATH}${CRUD}/user/`, user).pipe(first(),)
 	}
 
 	getAllDocs(): Observable<Medico[]> {

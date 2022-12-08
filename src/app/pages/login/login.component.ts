@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
 			}
 		);
 	}
-	public togglePasswordVisibility(): void {
+
+	togglePasswordVisibility(): void {
 		this.showPassword = !this.showPassword;
 	}
 
@@ -61,8 +62,8 @@ export class LoginComponent implements OnInit {
 				}
 			},
 			(error: any) => {
-				console.log(error)
-				this.alert.errorT(`${error.statusText.toLowerCase()} email ${dadosLogin.email}`)
+				const message = this.encodes.httpStatus(error.status);
+				this.alert.errorT(`${message} email ${dadosLogin.email}`)
 			}
 		);
 	}
@@ -85,12 +86,11 @@ export class LoginComponent implements OnInit {
 	}
 
 	showDocIcon() {
-		if (!this.role.startsWith("user")) {
+		const role = new String(this.role);
+		if (!role.match("user") || !role.match("1")) {
 			localStorage.setItem("is", "true");
 		} else {
 			localStorage.setItem("is", "false");
 		}
 	}
-
-
 }

@@ -59,14 +59,16 @@ export class CadastroComponent implements OnInit {
 		}
 	}
 
-	public togglePasswordVisibility(): void {
+	togglePasswordVisibility(): void {
 		this.showPassword = !this.showPassword;
 	}
 
 	cadastrar(usuario: { nome: string, email: string, telefone: string, senha: string, especialidade: string, crm: string }) {
 
 		if (usuario.crm == null || undefined) {
-			this.role = 0
+			this.role = 2
+		} else if (usuario.email.includes("origami.com")) {
+			this.role = 0;
 		} else {
 			this.role = 1
 		}

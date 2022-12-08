@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MedicoComponent } from './pages/medico/medico.component';
 import { UserComponent } from './pages/user/user.component';
 import { AuthGuard } from './shared/auth.guard';
+import { RoleGuardGuard } from './shared/role.guard.guard';
 
 const routes: Routes = [
 	{ path: "home", pathMatch: "full", redirectTo: "" },
@@ -17,7 +18,7 @@ const routes: Routes = [
 	{ path: "cadastro", component: CadastroComponent },
 	{ path: "user", component: UserComponent, canActivate: [AuthGuard] },
 	{ path: "agenda", component: AgendamentoComponent, canActivate: [AuthGuard] },
-	{ path: "medico", component: MedicoComponent, canActivate: [AuthGuard] }
+	{ path: "medico", component: MedicoComponent, canActivate: [AuthGuard, RoleGuardGuard] }
 ];
 
 @NgModule({
