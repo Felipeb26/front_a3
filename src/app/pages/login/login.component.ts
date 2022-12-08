@@ -86,8 +86,8 @@ export class LoginComponent implements OnInit {
 	}
 
 	showDocIcon() {
-		const role = new String(this.role);
-		if (!role.match("user") || !role.match("1")) {
+		const _have = new String(this.role);
+		if (_have.startsWith("admin") || _have === "1" || _have === "0") {
 			localStorage.setItem("is", "true");
 		} else {
 			localStorage.setItem("is", "false");

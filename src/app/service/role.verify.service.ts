@@ -15,7 +15,7 @@ export class RoleVerifyService {
 		if (this.local == null || undefined) {
 			this.local = "false"
 		}
-		if (this.local!.startsWith("true") || this.local!.startsWith("0")) {
+		if (this.local!.startsWith("true")) {
 			localStorage.setItem("is", "true");
 			return this.local;
 		} else {

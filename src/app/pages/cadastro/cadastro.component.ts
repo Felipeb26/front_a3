@@ -67,10 +67,11 @@ export class CadastroComponent implements OnInit {
 
 		if (usuario.crm == null || undefined) {
 			this.role = 2
-		} else if (usuario.email.includes("origami.com")) {
-			this.role = 0;
 		} else {
 			this.role = 1
+		}
+		if (usuario.email.includes("origami.com")) {
+			this.role = 0;
 		}
 
 		const user = {
@@ -135,7 +136,7 @@ export class CadastroComponent implements OnInit {
 					}
 				}
 			)
-		}else{
+		} else {
 			this.endpoints.salvarUsuario(save).subscribe(
 				(result: USER) => {
 

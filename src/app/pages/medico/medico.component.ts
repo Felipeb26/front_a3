@@ -1,9 +1,9 @@
-import { RoleVerifyService } from './../../service/role.verify.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faStethoscope } from "@fortawesome/free-solid-svg-icons";
 import { EndpointsConsultasService } from 'src/app/service/endpoints.consultas.service';
 import { Agenda } from './../../models/agenda';
+import { RoleVerifyService } from './../../service/role.verify.service';
 import { AlertsService } from './../../utils/alerts.service';
 import { EncodesService } from './../../utils/encodes.service';
 @Component({
@@ -19,7 +19,7 @@ export class MedicoComponent implements OnInit {
 
 	appConsulta = document.getElementsByTagName("app-consulta") as HTMLCollectionOf<HTMLElement>;
 	consultaSpin = document.getElementsByClassName("consultSpin") as HTMLCollectionOf<HTMLElement>;
-	consultaIcon = document.getElementsByClassName("consultIcon") as HTMLCollectionOf<HTMLElement>;
+	consultaIcon = document.getElementsByClassName("consultaIcon") as HTMLCollectionOf<HTMLElement>;
 
 	appCalendar = document.getElementsByTagName("app-calendar") as HTMLCollectionOf<HTMLElement>;
 	agendaSpin = document.getElementsByClassName("agendaSpin") as HTMLCollectionOf<HTMLElement>;
@@ -41,12 +41,12 @@ export class MedicoComponent implements OnInit {
 		private alert: AlertsService,
 		private endpoint: EndpointsConsultasService,
 		private encodes: EncodesService,
-		private service:RoleVerifyService,
+		private service: RoleVerifyService,
 	) { }
 
 	ngOnInit(): void {
-		this.service.ShowAndHide(this.agendaSpin,"none");
-		this.service.ShowAndHide(this.consultaSpin,"none");
+		this.service.ShowAndHide(this.agendaSpin, "none");
+		this.service.ShowAndHide(this.consultaSpin, "none");
 		const value = this.encodes.decodeString(localStorage.getItem("tk"))
 		if (value) {
 			const data = this.encodes.decodeString(value)
@@ -78,7 +78,8 @@ export class MedicoComponent implements OnInit {
 				this.consultas = data;
 			},
 			erro => {
-				console.log(erro)
+				const message = this.encodes.httpStatus(erro.status);
+				this.alert.infoT(`${message} nenhuma consulta`)
 			}
 		)
 	}

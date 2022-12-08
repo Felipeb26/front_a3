@@ -35,12 +35,12 @@
 				<span class="material-icons agendaIcon">
 					date_range
 				</span>
-				<!-- <mat-spinner class="agendaSpin"></mat-spinner> -->
+				<div class="agendaSpin"></div>
 			</button>
 			<button class="btnComponent" mat-button changeCompo="ver consultas" #consulta (click)="showConsulta()"
 				[class.spinner]="loading">
 				<fa-icon class="consultaIcon" [icon]="esteto" size="2x"></fa-icon>
-				<!-- <mat-spinner class="consultSpin"></mat-spinner> -->
+				<div class="consultSpin"></div>
 			</button>
 		</mat-card-actions>
 	</mat-card>

@@ -20,6 +20,8 @@
 
 	& mat-card-title {
 		text-transform: capitalize;
+		font-weight: bold;
+		font-style: italic;
 		margin: 0 0 2rem 0;
 	}
 
@@ -41,11 +43,12 @@
 	}
 }
 
-mat-card-actions{
+mat-card-actions {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	& button{
+
+	& button {
 		box-shadow: 0 0 0.5rem var(--myLogo);
 		border: 1px solid var(--myBlack);
 		background: var(--myPurple);
@@ -54,13 +57,18 @@ mat-card-actions{
 		margin: 0 10%;
 		flex: 1;
 	}
-	& fa-icon,.material-icons{
+
+	& fa-icon,
+	.material-icons {
 		color: var(--myBlack);
 		margin: auto;
 	}
 }
 
 .btnComponent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: relative;
 	transition: all 0.5 ease-in-out;
 }
@@ -86,18 +94,41 @@ mat-card-actions{
 	visibility: visible;
 }
 
-app-consulta{
+app-consulta {
 	flex: 4;
 }
 
-app-calendar{
+app-calendar {
 	flex: 4;
 }
+
+.consultSpin,
+.agendaSpin {
+	pointer-events: none;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #ffffff;
+	animation: an1 1s ease infinite;
+}
+
+@keyframes an1 {
+	0% {
+		transform: rotate(0turn);
+	}
+
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
 
 @media (max-width: 900px) {
-	.main::-webkit-scrollbar{
+	.main::-webkit-scrollbar {
 		// height: 0.2rem;
 	}
+
 	.data {
 		margin: 0 5rem 5rem 0;
 	}

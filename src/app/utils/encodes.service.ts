@@ -29,11 +29,11 @@ export class EncodesService {
 	}
 
 	httpStatus(status: any) {
-		if (status == '200') return 'OK';
-		if (status == '201') return 'Created';
-		if (status == '202') return 'Accepted';
+		if (status == '200') return 'ok';
+		if (status == '201') return 'creado';
+		if (status == '202') return 'aceito';
 		if (status == '203') return 'Non-Authoritative Information';
-		if (status == '204') return 'No Content';
+		if (status == '204') return 'sem conteudo';
 		if (status == '205') return 'Reset Content';
 		if (status == '206') return 'Partial Content';
 		if (status == '300') return 'Multiple Choices';
@@ -44,11 +44,11 @@ export class EncodesService {
 		if (status == '305') return 'Use Proxy';
 		if (status == '306') return 'Unused';
 		if (status == '307') return 'Temporary Redirect';
-		if (status == '400') return 'Bad Request';
-		if (status == '401') return 'Unauthorized';
+		if (status == '400') return 'bad request';
+		if (status == '401') return 'não autorizado';
 		if (status == '402') return 'Payment Required';
 		if (status == '403') return 'Forbidden';
-		if (status == '404') return 'Not Found';
+		if (status == '404') return 'não encontrado';
 		if (status == '405') return 'Method Not Allowed';
 		if (status == '406') return 'Not Acceptable';
 		if (status == '407') return 'Proxy Authentication Required';
