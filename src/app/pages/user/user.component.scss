@@ -1,108 +1,116 @@
 .card {
-    //box-shadow: 0 0 1.5rem var(--myPurpleShadow);
-    justify-content: space-between;
-    border-radius: 10px;
-    flex-wrap: wrap;
-    padding: 1rem;
-    margin: 5% 3%;
-    display: flex;
+	//box-shadow: 0 0 1.5rem var(--myPurpleShadow);
+	justify-content: space-between;
+	border-radius: 10px;
+	flex-wrap: wrap;
+	padding: 1rem;
+	margin: 5% 3%;
+	display: flex;
 
-    & form {
-        flex-direction: column;
-        display: flex;
-        flex: 3;
+	& h1 {
+		text-transform: capitalize;
+		text-decoration: underline;
+		color: var(--myBlack);
+	}
 
-        & .btns {
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
+	& form {
+		flex-direction: column;
+		display: flex;
+		flex: 3;
 
-            & button {
-                transition: all 0.3s ease-in-out;
-                box-shadow: 0 0 0.8rem var(--myPurpleShadow);
-					     border: 1px solid var(--myBlack);
+		& .btns {
+			display: flex;
+			align-items: baseline;
+			justify-content: center;
 
-                background: var(--myPurple);
-                text-transform: capitalize;
-                letter-spacing: 0.2rem;
-                color: var(--myBlack);
-                margin: 1rem 1.2rem;
-            }
+			& button {
+				transition: all 0.3s ease-in-out;
+				box-shadow: 0 0 0.8rem var(--myPurpleShadow);
+				border: 1px solid var(--myBlack);
 
-            & button:hover {
-                box-shadow: 0 0.5rem 0.8rem var(--myLogo);
-            }
-        }
-    }
+				background: var(--myPurple);
+				text-transform: uppercase;
+				font-weight: bold;
+				letter-spacing: 0.2rem;
+				color: var(--myBlack);
+				margin: 1rem 1.2rem;
+			}
 
-    & .delete {
-        height: 25%;
-        display: flex;
-        margin: 1rem 0 0 3rem;
+			& button:hover {
+				box-shadow: 0 0.5rem 0.8rem var(--myLogo);
+			}
+		}
+	}
 
-        & button {
-            box-shadow: 0 0 0.3rem var(--myPurpleShadow);
-				    border: 1px solid var(--myBlack);
+	& .delete {
+		height: 25%;
+		display: flex;
+		margin: 1rem 0 0 3rem;
 
-            text-transform: capitalize;
-            letter-spacing: 0.2rem;
-            color: var(--myBlack);
-            background: var(--myPurple);
-        }
-    }
+		& button {
+			box-shadow: 0 0 0.3rem var(--myPurpleShadow);
+			border: 1px solid var(--myBlack);
+
+			text-transform: uppercase;
+			font-weight: bold;
+			letter-spacing: 0.2rem;
+			color: var(--myBlack);
+			background: var(--myPurple);
+		}
+	}
 }
 
 mat-form-field {
-    box-shadow: 0 0 0.5rem var(--myBlack);
-    margin: 0 0 2rem 0;
-	 border-radius: 10px ;
+	box-shadow: 0 0 0.5rem var(--myBlack);
+	margin: 0 0 2rem 0;
+	border-radius: 10px;
 
-    & mat-label {
-        text-transform: capitalize;
-        letter-spacing: 0.1rem;
-        font-weight: 500;
-        font-style: italic;
-        color: var(--myBlack);
-    }
+	& mat-label {
+		text-transform: capitalize;
+		letter-spacing: 0.1rem;
+		font-weight: 500;
+		font-style: italic;
+		color: var(--myBlack);
+	}
 
-    & input {
-        margin: 0.5rem 0 0.5rem 0;
-        color: var(--myBlack);
-        font-size: medium;
-    }
+	& input {
+		margin: 0.5rem 0 0.5rem 0;
+		color: var(--myBlack);
+		font-size: medium;
+	}
 
-    & input::placeholder {
-        letter-spacing: 0.1rem;
-        font-weight: 500;
-        color: var(--myLogo);
-        text-decoration: underline var(--myLogo);
-    }
+	& input::placeholder {
+		letter-spacing: 0.1rem;
+		font-weight: 500;
+		color: var(--myLogo);
+		text-decoration: underline var(--myLogo);
+	}
 }
 
 mat-checkbox {
-    text-decoration: underline var(--myBlack);
-    text-transform: capitalize;
-    font-weight: 500;
-    letter-spacing: 0.1rem;
-    color: var(--myBlack);
-    transition: all 0.5s ease-in-out;
-    position: relative;
-    outline: none;
+	text-decoration: underline var(--myBlack);
+	text-transform: capitalize;
+	font-weight: 500;
+	letter-spacing: 0.1rem;
+	color: var(--myBlack);
+	transition: all 0.5s ease-in-out;
+	position: relative;
+	outline: none;
 }
 
 mat-checkbox::after {
-    content: "";
-    background: var(--myLogo);
-    position: absolute;
-    height: 0.2rem;
-    width: 125%;
-    left: -1.2rem;
-    right: 0;
-    bottom: 0;
-    transform: scale(0, 0.8);
-    transition: 0.5s ease-in-out;
+	content: "";
+	background: var(--myLogo);
+	position: absolute;
+	height: 0.2rem;
+	width: 125%;
+	left: -1.2rem;
+	right: 0;
+	bottom: 0;
+	transform: scale(0, 0.8);
+	transition: 0.5s ease-in-out;
 }
 
 mat-checkbox:hover::after {
-    transform: scale(0.8, 0.8);
+	transform: scale(0.8, 0.8);
 }

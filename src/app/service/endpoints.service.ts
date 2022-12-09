@@ -49,7 +49,7 @@ export class EndpointsService {
 			.pipe();
 	}
 	salvarMedico(user: USER): Observable<any> {
-		return this.http.post<any>(`${API_PATH}${CRUD}/docs/`, user);
+		return this.http.post<any>(`${API_PATH}${CRUD}/doc/`, user);
 	}
 	updateDoc(id: any, user: USER): Observable<any> {
 		return this.http.put<any>(`${API_PATH}${CRUD}/docs/${id}`, user);

@@ -92,52 +92,51 @@ export class CadastroComponent implements OnInit {
 			"role": this.role
 		}
 
-		let save = user;
-		if (usuario.crm != "" || usuario.crm != undefined) {
-			save = doctor;
-			this.endpoints.salvarMedico(save).subscribe(
-				(result: USER) => {
+		const crm = usuario.crm
+		if (crm == null|| undefined) {
+				this.endpoints.salvarUsuario(user).subscribe(
+					(result: USER) => {
 
-					if (result.crm != null || undefined) {
-						const mail = {
-							"user": result.nome,
-							"para": result.email,
-							"modelo": "bemvindo_user"
+						if (result.crm != null || undefined) {
+							const mail = {
+								"user": result.nome,
+								"para": result.email,
+								"modelo": "bemvindo_user"
+							}
+							this.endpoint2.enviarEmail(mail);
+						} else {
+							const mail = {
+								"user": result.nome,
+								"para": result.email,
+								"modelo": "bemvindo_doc"
+							}
+							this.endpoint2.enviarEmail(mail).subscribe(
+								data => console.log(data),
+								erro => console.log(erro)
+							);
 						}
-						this.endpoint2.enviarEmail(mail);
-					} else {
-						const mail = {
-							"user": result.nome,
-							"para": result.email,
-							"modelo": "bemvindo_doc"
+						setTimeout(() => {
+							this.route.navigate([""]);
+							this.alert.sucessT(`Usuario ${result.nome} cadastrado!`)
+						}, 2500)
+					},
+					(error: any) => {
+						let err = error.error;
+						err = err.toString().replace("[", "");
+						err = err.toString().replace("]", "");
+						err = err.toString().replace(",", "\n");
+						this.alert.errorT(err)
+						const er = error.error.errorList;
+						if (er != null || undefined) {
+							let erro = new String(er);
+							erro = erro.replace("[", "")
+							erro = erro.replace("]", "")
+							this.alert.errorT(erro)
 						}
-						this.endpoint2.enviarEmail(mail).subscribe(
-							data => console.log(data),
-							erro => console.log(erro)
-						);
 					}
-					setTimeout(() => {
-						this.route.navigate([""]);
-						this.alert.sucessT(`Usuario ${result.nome} cadastrado!`)
-					}, 2500)
-				},
-				(error: any) => {
-					let err = error.error;
-					err = err.toString().replace("[", "");
-					err = err.toString().replace("]", "");
-					err = err.toString().replace(",", "\n");
-					this.alert.errorT(err)
-					const er = error.error.errorList;
-					if (er != null || undefined) {
-						let erro = new String(er);
-						erro = erro.replace("[", "")
-						erro = erro.replace("]", "")
-						this.alert.errorT(erro)
-					}
-				}
-			)
+				)
 		} else {
-			this.endpoints.salvarUsuario(save).subscribe(
+			this.endpoints.salvarMedico(doctor).subscribe(
 				(result: USER) => {
 
 					if (result.crm != null || undefined) {

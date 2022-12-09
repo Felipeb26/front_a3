@@ -14,8 +14,10 @@ import { AlertsService } from './../../utils/alerts.service';
 })
 export class UserComponent implements OnInit {
 
-	form = document.getElementsByTagName("mat-form-field") as HTMLCollectionOf<HTMLElement>;
-	input = document.getElementsByTagName("input") as HTMLCollectionOf<HTMLElement>;
+	emails = document.getElementsByClassName("email") as HTMLCollectionOf<HTMLElement>;
+	// input = document.getElementsByTagName("input") as HTMLCollectionOf<HTMLElement>;
+
+
 	check: string = "disabled"
 	checks: boolean = true
 	id: string = ""
@@ -33,10 +35,8 @@ export class UserComponent implements OnInit {
 		private alert: AlertsService,
 		private route: Router) { }
 
-
 	ngOnInit(): void {
 		const value = this.encodes.decodeString(localStorage.getItem("tk"))
-
 		if (value) {
 			const data = this.encodes.decodeString(value)
 			if (data) {
@@ -45,11 +45,15 @@ export class UserComponent implements OnInit {
 				const user = data?.substring(index + 1, lastIndex + 1);
 				const userData = JSON.parse(user);
 
+				console.log(userData)
+
 				this.id = userData.id;
 				this.nome = userData.nome.toUpperCase();
 				this.email = userData.email;
 				this.senha = userData.senha;
 				this.telefone = userData.telefone;
+				this.especialidade = userData.especialidade;
+				this.crm = userData.crm;
 			}
 		} else {
 			this.alert.infoT("necessario se logar!");
@@ -59,22 +63,13 @@ export class UserComponent implements OnInit {
 
 	enableInputs() {
 		if (this.check.startsWith("disabled")) {
-			for (let i = 0; i < this.form.length; i++) {
-				this.form[i].style.boxShadow = "0 -1.75rem 0.5rem -0.8rem var(--myPurple) inset";
-				this.input[i].style.textDecoration = "none";
-				this.checks = false
-			}
+			this.checks = false
 			this.check = "false"
 		} else {
-			for (let i = 0; i < this.form.length; i++) {
-				this.form[i].style.boxShadow = "inset 0 0 5rem var(--myPurple)";
-				this.input[i].style.textDecoration = "underline var(--myLogo)";
-				this.checks = true
-			}
+			this.checks = true
 			this.check = "disabled";
 		}
 	}
-
 
 	delete() {
 		this.endpoint.deleteUser(this.id).subscribe(
@@ -90,7 +85,6 @@ export class UserComponent implements OnInit {
 	}
 
 	atualizar(usuario: NgForm) {
-
 		const { nome, email, senha, telefone, crm, especialidade } = usuario.value;
 
 		const user = {
@@ -127,4 +121,5 @@ export class UserComponent implements OnInit {
 		)
 
 	}
+
 }

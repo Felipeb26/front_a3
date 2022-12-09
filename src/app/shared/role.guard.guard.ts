@@ -16,7 +16,7 @@ export class RoleGuardGuard implements CanActivate {
 		let _have = this.service.haveAcess();
 		_have = new String(_have)
 
-		if (_have.startsWith("admin") || _have === "1" || _have === "0") {
+		if (_have.startsWith("admin") || _have.startsWith("1") || _have.startsWith("0")) {
 			return true
 		} else {
 			this.alert.infoT("não autorizado acesso!")
