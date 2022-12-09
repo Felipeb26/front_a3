@@ -1,3 +1,4 @@
+import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/about/about.component';
@@ -18,7 +19,9 @@ const routes: Routes = [
 	{ path: "cadastro", component: CadastroComponent },
 	{ path: "user", component: UserComponent, canActivate: [AuthGuard] },
 	{ path: "agenda", component: AgendamentoComponent, canActivate: [AuthGuard] },
-	{ path: "medico", component: MedicoComponent, canActivate: [AuthGuard, RoleGuardGuard] }
+	{ path: "medico", component: MedicoComponent, canActivate: [AuthGuard, RoleGuardGuard] },
+	{ path: '404', component: NotfoundComponent },
+	{ path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({

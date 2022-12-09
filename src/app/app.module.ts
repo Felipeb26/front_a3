@@ -50,6 +50,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SwiperModule } from 'swiper/angular';
 import { ModalPopupComponent } from './components/modal.popup/modal.popup.component';
 import { ModalActionsComponent } from './components/modal.actions/modal.actions.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 	dayGridPlugin,
@@ -75,6 +76,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 		ConsultaComponent,
 		ModalPopupComponent,
 		ModalActionsComponent,
+  NotfoundComponent,
 	],
 	imports: [
 		BrowserModule,
